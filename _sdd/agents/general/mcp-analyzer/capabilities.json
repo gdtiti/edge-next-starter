@@ -1,0 +1,60 @@
+{
+  "agent_id": "mcp-analyzer",
+  "version": "1.0.0",
+  "capabilities": [
+    {
+      "capability_id": "mcp_discovery",
+      "name": "MCP工具发现",
+      "description": "发现和识别当前环境中的MCP服务器和工具",
+      "discovery_methods": ["server_scan", "tool_enumeration", "capability_mapping"],
+      "analysis_scope": ["local_environment", "project_context", "integration_requirements"]
+    },
+    {
+      "capability_id": "capability_analysis",
+      "name": "能力分析",
+      "description": "深度分析MCP工具的功能、性能和可靠性",
+      "analysis_areas": ["functionality", "performance", "reliability", "usability"],
+      "assessment_criteria": ["feature_completeness", "performance_efficiency", "error_handling", "documentation_quality"]
+    },
+    {
+      "capability_id": "sdd_mapping",
+      "name": "SDD阶段映射",
+      "description": "将MCP工具映射到SDD开发阶段，确定最佳使用场景",
+      "mapping_strategy": ["phase_alignment", "workflow_integration", "use_case_identification"],
+      "sdd_phases": ["init", "specify", "plan", "implement", "validate", "learn"]
+    },
+    {
+      "capability_id": "integration_planning",
+      "name": "集成规划",
+      "description": "规划MCP工具与SDD工作流的集成方案",
+      "planning_aspects": ["technical_integration", "workflow_design", "performance_optimization"],
+      "deliverables": ["integration_specifications", "usage_guidelines", "best_practices"]
+    }
+  ],
+  "specializations": [
+    "mcp_protocol_analysis",
+    "tool_capability_assessment",
+    "sdd_integration_planning",
+    "usage_optimization",
+    "template_generation"
+  ],
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "WebSearch",
+    "TodoWrite"
+  ],
+  "quality_metrics": {
+    "discovery_accuracy": 0.90,
+    "analysis_depth": 0.85,
+    "mapping_relevance": 0.80,
+    "practical_applicability": 0.75
+  },
+  "integration_support": {
+    "mcp_versions": ["1.0.0"],
+    "supported_protocols": ["stdio", "sse"],
+    "tool_categories": ["filesystem", "web_search", "code_analysis", "automation"],
+    "integration_patterns": ["direct_call", "workflow_embedding", "conditional_execution"]
+  }
+}

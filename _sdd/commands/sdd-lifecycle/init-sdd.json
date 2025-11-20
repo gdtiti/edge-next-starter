@@ -1,0 +1,73 @@
+{
+  "command_id": "init-sdd",
+  "name": "初始化SDD框架",
+  "version": "1.0.0",
+  "category": "sdd-lifecycle",
+  "type": "atomic",
+  "description": "初始化SDD框架，建立项目宪法和开发规范",
+
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "project_description": {
+        "type": "string",
+        "description": "项目描述",
+        "required": true
+      },
+      "tech_stack": {
+        "type": "object",
+        "description": "技术栈信息",
+        "properties": {
+          "framework": {"type": "string"},
+          "language": {"type": "string"},
+          "database": {"type": "string"}
+        }
+      },
+      "team_info": {
+        "type": "object",
+        "description": "团队信息",
+        "properties": {
+          "size": {"type": "integer"},
+          "experience_level": {"type": "string"}
+        }
+      },
+      "quality_level": {
+        "type": "string",
+        "enum": ["basic", "standard", "high", "enterprise"],
+        "description": "质量要求等级",
+        "default": "standard"
+      }
+    },
+    "required": ["project_description"]
+  },
+
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "initialization_result": {
+        "type": "object",
+        "properties": {
+          "constitution_created": {"type": "boolean"},
+          "framework_setup": {"type": "boolean"},
+          "templates_created": {"type": "boolean"},
+          "next_steps": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+
+  "implementation": {
+    "tools": ["Read", "Write", "Edit"],
+    "timeout": 30000,
+    "workflow_phase": "project_initiation"
+  },
+
+  "sdd_workflow": {
+    "phase": "initialization",
+    "agent": "init-architect",
+    "next_commands": ["create-specification", "create-technical-plan"]
+  }
+}

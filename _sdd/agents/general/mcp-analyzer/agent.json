@@ -1,0 +1,203 @@
+{
+  "agent_id": "mcp-analyzer",
+  "name": "SDD MCP工具分析专家",
+  "description": "专门负责分析当前环境中的MCP工具，生成标准化的使用规范，并创建SDD阶段映射",
+  "version": "1.0.0",
+  "type": "general-purpose",
+  "subtype": "mcp-analyzer",
+  "category": "general",
+  "capabilities": [
+    "MCP工具发现和识别",
+    "功能和能力深度分析",
+    "工具可靠性评估",
+    "SDD阶段映射",
+    "使用规范制定",
+    "模板创建",
+    "最佳实践总结"
+  ],
+
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "analysis_type": {
+        "type": "string",
+        "enum": ["discovery", "capability_analysis", "reliability_assessment", "sdd_mapping"],
+        "description": "MCP工具分析类型",
+        "required": true
+      },
+      "category": {
+        "type": "string",
+        "enum": ["all", "documentation", "testing", "analysis", "automation"],
+        "description": "分析的工具类别",
+        "default": "all"
+      },
+      "phase": {
+        "type": "string",
+        "enum": ["all", "init", "specify", "plan", "tasks", "implement", "validate", "learn"],
+        "description": "针对特定SDD阶段的分析",
+        "default": "all"
+      },
+      "format": {
+        "type": "string",
+        "enum": ["summary", "detailed", "template"],
+        "description": "输出格式类型",
+        "default": "detailed"
+      },
+      "target_environment": {
+        "type": "object",
+        "description": "目标环境信息",
+        "properties": {
+          "mcp_servers": {"type": "array", "items": {"type": "string"}},
+          "available_tools": {"type": "array", "items": {"type": "string"}},
+          "integration_constraints": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "required": ["analysis_type"]
+  },
+
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "analysis_result": {
+        "type": "object",
+        "properties": {
+          "mcp_tools_discovered": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "tool_name": {"type": "string"},
+                "server_name": {"type": "string"},
+                "category": {"type": "string"},
+                "description": {"type": "string"},
+                "capabilities": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          },
+          "capability_analysis": {
+            "type": "object",
+            "properties": {
+              "tool_categories": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "category": {"type": "string"},
+                    "tools": {"type": "array", "items": {"type": "string"}},
+                    "common_capabilities": {"type": "array", "items": {"type": "string"}}
+                  }
+                }
+              },
+              "integration_potential": {
+                "type": "object",
+                "properties": {
+                  "high_integration": {"type": "array", "items": {"type": "string"}},
+                  "medium_integration": {"type": "array", "items": {"type": "string"}},
+                  "specialized_use": {"type": "array", "items": {"type": "string"}}
+                }
+              }
+            }
+          },
+          "sdd_phase_mapping": {
+            "type": "object",
+            "properties": {
+              "init_phase_tools": {"type": "array", "items": {"type": "string"}},
+              "specify_phase_tools": {"type": "array", "items": {"type": "string"}},
+              "plan_phase_tools": {"type": "array", "items": {"type": "string"}},
+              "implement_phase_tools": {"type": "array", "items": {"type": "string"}},
+              "validate_phase_tools": {"type": "array", "items": {"type": "string"}},
+              "learn_phase_tools": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "usage_guidelines": {
+            "type": "object",
+            "properties": {
+              "best_practices": {"type": "array", "items": {"type": "string"}},
+              "integration_patterns": {"type": "array", "items": {"type": "string"}},
+              "error_handling": {"type": "array", "items": {"type": "string"}},
+              "performance_considerations": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "templates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "template_name": {"type": "string"},
+                "description": {"type": "string"},
+                "usage_scenario": {"type": "string"},
+                "parameters": {"type": "array", "items": {"type": "object"}}
+              }
+            }
+          },
+          "next_actions": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+
+  "sdd_workflow_integration": {
+    "primary_phases": ["project_initiation", "quality_assurance", "continuous_improvement"],
+    "tool_integration_support": [
+      "mcp_server_discovery",
+      "capability_assessment",
+      "integration_planning",
+      "usage_optimization"
+    ],
+    "collaboration_agents": ["init-architect", "analyzer", "implementer"]
+  },
+
+  "mcp_analysis_methods": {
+    "discovery": [
+      "server_scan",
+      "tool_enumeration",
+      "capability_mapping",
+      "reliability_testing"
+    ],
+    "analysis": [
+      "functional_analysis",
+      "performance_benchmarking",
+      "integration_testing",
+      "compatibility_assessment"
+    ],
+    "mapping": [
+      "phase_alignment",
+      "workflow_integration",
+      "use_case_identification",
+      "value_assessment"
+    ]
+  },
+
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "WebSearch",
+    "TodoWrite"
+  ],
+
+  "specializations": [
+    "mcp_protocol_analysis",
+    "tool_capability_assessment",
+    "sdd_integration_planning",
+    "usage_optimization",
+    "template_generation"
+  ],
+
+  "workflow_support": [
+    "tool_analysis",
+    "capability_assessment",
+    "integration_planning"
+  ],
+
+  "quality_metrics": {
+    "discovery_accuracy": 0.90,
+    "analysis_depth": 0.85,
+    "mapping_relevance": 0.80,
+    "practical_applicability": 0.75
+  }
+}

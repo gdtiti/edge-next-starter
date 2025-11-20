@@ -1,0 +1,65 @@
+{
+  "agent_id": "checklist-generator",
+  "version": "1.0.0",
+  "capabilities": [
+    {
+      "capability_id": "quality_standards_definition",
+      "name": "质量标准定义",
+      "description": "定义和维护项目质量标准及评估准则",
+      "standards_frameworks": ["ISO_9001", "CMMI", "Agile_Principles", "SDD_Quality_Standards"],
+      "assessment_criteria": ["measurability", "relevance", "completeness", "actionability"]
+    },
+    {
+      "capability_id": "checklist_design",
+      "name": "检查清单设计",
+      "description": "设计结构化、可执行的质量检查清单",
+      "design_principles": ["SMART_criteria", "risk_based_approach", "continuous_improvement"],
+      "checklist_structures": ["hierarchical", "category_based", "risk_weighted", "time_based"]
+    },
+    {
+      "capability_id": "process_improvement",
+      "name": "流程改进",
+      "description": "基于检查清单结果识别流程改进机会",
+      "improvement_methods": ["root_cause_analysis", "best_practice_adoption", "process_reengineering"],
+      "improvement_areas": ["quality_gates", "review_processes", "automation_opportunities"]
+    },
+    {
+      "capability_id": "compliance_verification",
+      "name": "合规性验证",
+      "description": "验证开发活动对标准和规范的符合性",
+      "compliance_frameworks": ["project_constitution", "industry_standards", "regulatory_requirements"],
+      "verification_methods": ["audit_checklist", "compliance_testing", "documentation_review"]
+    }
+  ],
+  "specializations": [
+    "quality_standards_definition",
+    "checklist_design",
+    "process_improvement",
+    "compliance_verification",
+    "template_generation"
+  ],
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "TodoWrite"
+  ],
+  "quality_metrics": {
+    "checklist_effectiveness": 0.85,
+    "quality_defect_detection": 0.80,
+    "process_improvement_impact": 0.75,
+    "automation_coverage": 0.70
+  },
+  "integration_patterns": {
+    "sdd_phases": [
+      "requirement_analysis",
+      "design_review",
+      "implementation_phase",
+      "quality_assurance",
+      "constitution_compliance"
+    ],
+    "checkpoint_frequency": "on_milestone_completion",
+    "escalation_triggers": ["critical_non_compliance", "quality_degradation", "process_bottlenecks"]
+  }
+}

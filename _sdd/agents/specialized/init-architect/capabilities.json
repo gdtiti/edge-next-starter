@@ -1,0 +1,59 @@
+{
+  "agent_id": "init-architect",
+  "version": "1.0.0",
+  "capabilities": [
+    {
+      "capability_id": "project_analysis",
+      "name": "项目分析",
+      "description": "全面分析项目结构和技术栈",
+      "analysis_areas": ["tech_stack", "architecture_patterns", "code_quality", "dependencies"],
+      "tools": ["Read", "Glob", "Grep"]
+    },
+    {
+      "capability_id": "architecture_design",
+      "name": "架构设计",
+      "description": "设计适合的SDD集成架构",
+      "design_patterns": ["layered_architecture", "microservices", "event_driven"],
+      "tools": ["Write", "Edit"]
+    },
+    {
+      "capability_id": "technology_selection",
+      "name": "技术选择",
+      "description": "分析和推荐技术栈选择",
+      "selection_criteria": ["performance", "scalability", "maintainability", "team_expertise"],
+      "tools": ["Read", "WebSearch"]
+    },
+    {
+      "capability_id": "sdd_integration",
+      "name": "SDD集成",
+      "description": "制定SDD系统集成方案",
+      "integration_strategies": ["phased_implementation", "big_bang", "parallel_development"],
+      "tools": ["Write", "Edit", "Bash"]
+    }
+  ],
+  "specializations": [
+    "project_analysis",
+    "architecture_design",
+    "technology_selection",
+    "sdd_integration"
+  ],
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "Glob",
+    "Grep",
+    "Bash"
+  ],
+  "quality_metrics": {
+    "tech_stack_identification_accuracy": 0.95,
+    "recommendation_feasibility": 0.90,
+    "documentation_completeness": 0.95,
+    "analysis_depth": 0.85
+  },
+  "performance_requirements": {
+    "max_project_size": "medium",
+    "max_analysis_time": 300,
+    "response_time_target": 180
+  }
+}

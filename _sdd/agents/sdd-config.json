@@ -1,0 +1,119 @@
+{
+  "version": "1.0.0",
+  "name": "SDD Agent Configuration",
+  "description": "SDD 范式的 Agent 配置管理系统",
+  "agent_mappings": {
+    "/sdd.init": {
+      "agent_type": "init-architect",
+      "config_file": "agents/commands/init-architect.json",
+      "prompt_template": "agents/prompts/init-architect.md"
+    },
+    "/sdd.constitution": {
+      "agent_type": "planner",
+      "sub_type": "constitution",
+      "config_file": "agents/commands/planner.json",
+      "prompt_template": "agents/prompts/planner.md"
+    },
+    "/sdd.specify": {
+      "agent_type": "planner",
+      "sub_type": "specify",
+      "config_file": "agents/commands/planner.json",
+      "prompt_template": "agents/prompts/planner.md"
+    },
+    "/sdd.plan": {
+      "agent_type": "planner",
+      "sub_type": "plan",
+      "config_file": "agents/commands/planner.json",
+      "prompt_template": "agents/prompts/planner.md"
+    },
+    "/sdd.tasks": {
+      "agent_type": "planner",
+      "sub_type": "tasks",
+      "config_file": "agents/commands/planner.json",
+      "prompt_template": "agents/prompts/planner.md"
+    },
+    "/sdd.implement": {
+      "agent_type": "general-purpose",
+      "sub_type": "implementer",
+      "config_file": "agents/commands/implementer.json",
+      "prompt_template": "agents/prompts/implementer.md"
+    },
+    "/sdd.mcp": {
+      "agent_type": "general-purpose",
+      "sub_type": "mcp-analyzer",
+      "config_file": "agents/commands/mcp-analyzer.json",
+      "prompt_template": "agents/prompts/mcp-analyzer.md"
+    },
+    "/sdd.debug.init": {
+      "agent_type": "general-purpose",
+      "sub_type": "debugger",
+      "debug_type": "init",
+      "config_file": "agents/commands/debugger.json",
+      "prompt_template": "agents/prompts/debugger.md"
+    },
+    "/sdd.debug.analyze": {
+      "agent_type": "general-purpose",
+      "sub_type": "debugger",
+      "debug_type": "analyze",
+      "config_file": "agents/commands/debugger.json",
+      "prompt_template": "agents/prompts/debugger.md"
+    },
+    "/sdd.debug.solutions": {
+      "agent_type": "general-purpose",
+      "sub_type": "debugger",
+      "debug_type": "solutions",
+      "config_file": "agents/commands/debugger.json",
+      "prompt_template": "agents/prompts/debugger.md"
+    },
+    "/sdd.debug.validate": {
+      "agent_type": "general-purpose",
+      "sub_type": "debugger",
+      "debug_type": "validate",
+      "config_file": "agents/commands/debugger.json",
+      "prompt_template": "agents/prompts/debugger.md"
+    },
+    "/sdd.debug.implement": {
+      "agent_type": "general-purpose",
+      "sub_type": "debugger",
+      "debug_type": "implement",
+      "config_file": "agents/commands/debugger.json",
+      "prompt_template": "agents/prompts/debugger.md"
+    },
+    "/sdd.learn": {
+      "agent_type": "general-purpose",
+      "sub_type": "learner",
+      "config_file": "agents/commands/learner.json",
+      "prompt_template": "agents/prompts/learner.md"
+    },
+    "/sdd.clarify": {
+      "agent_type": "general-purpose",
+      "sub_type": "clarifier",
+      "config_file": "agents/commands/clarifier.json",
+      "prompt_template": "agents/prompts/clarifier.md"
+    },
+    "/sdd.analyze": {
+      "agent_type": "general-purpose",
+      "sub_type": "analyzer",
+      "config_file": "agents/commands/analyzer.json",
+      "prompt_template": "agents/prompts/analyzer.md"
+    },
+    "/sdd.checklist": {
+      "agent_type": "general-purpose",
+      "sub_type": "checklist-generator",
+      "config_file": "agents/commands/checklist-generator.json",
+      "prompt_template": "agents/prompts/checklist-generator.md"
+    }
+  },
+  "default_settings": {
+    "output_format": "structured",
+    "language": "zh-CN",
+    "quality_level": "high",
+    "include_examples": true,
+    "validation_enabled": true
+  },
+  "error_handling": {
+    "retry_attempts": 3,
+    "fallback_agent": "general-purpose",
+    "error_recovery": "automatic"
+  }
+}

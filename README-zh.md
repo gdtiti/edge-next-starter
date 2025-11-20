@@ -12,15 +12,17 @@
 ![Prisma](https://img.shields.io/badge/Prisma-6.17.1-2D3748?style=flat&logo=prisma)
 ![Node.js](https://img.shields.io/badge/Node.js-≥20.0.0-339933?style=flat&logo=node.js)
 ![pnpm](https://img.shields.io/badge/pnpm-8.15.0-F69220?style=flat&logo=pnpm)
+![SDD](https://img.shields.io/badge/SDD-规范驱动开发-blue?style=flat)
+![AI-Driven](https://img.shields.io/badge/AI-Driven-Development-purple?style=flat)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
 </div>
 
 ---
 
-# Next.js + Cloudflare 全栈模板
+# Next.js + Cloudflare 全栈模板 🚀
 
-一个开箱即用的 Next.js + Cloudflare 全栈项目模板，集成 Edge Runtime、D1 数据库、R2 存储、Analytics Engine 事件分析和完整的 CI/CD 流程。
+一个开箱即用的 Next.js + Cloudflare 全栈项目模板，集成 Edge Runtime、D1 数据库、R2 存储、Analytics Engine 事件分析、**SDD (规范驱动开发)** 框架和完整的 CI/CD 流程。
 
 ## ✨ 特性
 
@@ -52,6 +54,14 @@
 - ✅ **环境变量自动校验（Zod）**
 - ✅ **结构化日志和请求追踪（内置 Analytics 钩子，可扩展到 Analytics Engine）**
 - ✅ **数据库迁移自动校验脚本**
+
+### 🤖 AI驱动的SDD框架
+
+- 🎯 **规范驱动开发** - 从需求分析到代码实现的全流程规范化
+- 🤖 **AI代理协作** - 6个专业代理协同工作，覆盖开发全生命周期
+- 📊 **质量内建** - 自动代码审查、性能分析和安全扫描
+- 🔄 **持续改进** - 经验总结、最佳实践提炼和知识管理
+- 📈 **智能监控** - 实时质量指标跟踪和优化建议
 
 ## 📋 前置要求
 
@@ -101,6 +111,14 @@ cloudflare-worker-template/
 ├── __tests__/                 # 测试文件
 │   ├── lib/                  # 单元测试
 │   └── api/                  # API 测试
+├── _sdd/                      # SDD规范驱动开发框架
+│   ├── SDD_CONSTITUTION.md   # SDD项目宪法
+│   ├── config.json           # SDD框架配置
+│   ├── agents/               # AI代理配置
+│   ├── workflows/            # 工作流定义
+│   └── SDD_USAGE_GUIDE.md    # SDD使用指南
+├── .claude/                   # AI助手配置
+│   └── CLAUDE.md             # 项目上下文和规范
 ├── .github/workflows/         # GitHub Actions CI/CD
 │   ├── ci.yml                # 持续集成
 │   ├── deploy-test.yml       # 测试环境部署
@@ -272,6 +290,12 @@ pnpm run test:coverage      # 查看覆盖率
 
 - [REPOSITORY-zh.md](./docs/REPOSITORY-zh.md) - Repository 模式指南
 - [MIGRATIONS-zh.md](./docs/MIGRATIONS-zh.md) - 数据库迁移指南
+
+### 🤖 SDD框架文档
+
+- [SDD_CONSTITUTION.md](_sdd/SDD_CONSTITUTION.md) - SDD项目宪法和核心原则
+- [SDD_USAGE_GUIDE.md](_sdd/SDD_USAGE_GUIDE.md) - SDD框架使用指南和最佳实践
+- [.claude/CLAUDE.md](.claude/CLAUDE.md) - AI助手项目上下文配置
 
 ## 🔗 技术文档
 

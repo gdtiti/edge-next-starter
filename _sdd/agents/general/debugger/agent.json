@@ -1,0 +1,158 @@
+{
+  "agent_id": "debugger",
+  "name": "SDD Debugger Agent",
+  "version": "1.0.0",
+  "description": "负责SDD调试流程的智能体，提供系统化的问题分析和解决方案",
+  "type": "general-purpose",
+  "subtype": "debugger",
+  "category": "general",
+
+  "capabilities": [
+    "错误诊断",
+    "根因分析",
+    "解决方案设计",
+    "问题重现",
+    "调试报告生成",
+    "知识库更新"
+  ],
+
+  "specializations": [
+    "错误建档和分类",
+    "系统化根因分析",
+    "解决方案评估和选择",
+    "调试报告生成"
+  ],
+
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "debug_type": {
+        "type": "string",
+        "enum": ["init", "analyze", "solutions", "validate", "implement"],
+        "description": "调试阶段类型"
+      },
+      "error_description": {
+        "type": "string",
+        "description": "错误描述和现象"
+      },
+      "context": {
+        "type": "string",
+        "description": "错误发生的环境和上下文"
+      },
+      "existing_analysis": {
+        "type": "string",
+        "description": "已有的分析结果（如果有）"
+      },
+      "debug_history": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "历史调试记录"
+      }
+    },
+    "required": ["debug_type", "error_description"]
+  },
+
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "debug_result": {
+        "type": "object",
+        "properties": {
+          "stage": {"type": "string"},
+          "status": {"type": "string", "enum": ["completed", "in_progress", "blocked"]},
+          "analysis": {
+            "type": "object",
+            "properties": {
+              "error_classification": {"type": "string"},
+              "possible_causes": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "probability_assessment": {
+                "type": "object",
+                "properties": {
+                  "cause": {"type": "string"},
+                  "probability": {"type": "number"}
+                }
+              }
+            }
+          },
+          "solutions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "solution": {"type": "string"},
+                "feasibility": {"type": "string"},
+                "effort_required": {"type": "string"},
+                "risk_level": {"type": "string"}
+              }
+            }
+          },
+          "validation_plan": {
+            "type": "string",
+            "description": "验证方案"
+          },
+          "implementation_steps": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+
+  "debug_patterns": {
+    "api_misuse": {
+      "description": "第三方库API使用错误",
+      "template": "templates/api-misuse-pattern.md",
+      "success_rate": 0.85
+    },
+    "ux_optimization": {
+      "description": "用户体验问题",
+      "template": "templates/ux-optimization-pattern.md",
+      "success_rate": 0.90
+    },
+    "performance_issue": {
+      "description": "性能相关问题",
+      "template": "templates/performance-pattern.md",
+      "success_rate": 0.75
+    }
+  },
+
+  "quality_requirements": {
+    "min_analysis_depth": 3,
+    "max_solutions_per_problem": 5,
+    "validation_coverage": 0.9
+  },
+
+  "error_handling": {
+    "retry_attempts": 3,
+    "fallback_strategies": [
+      "切换调试模式",
+      "寻求外部帮助",
+      "简化问题范围"
+    ]
+  },
+
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "Bash",
+    "WebSearch",
+    "TodoWrite"
+  ],
+
+  "knowledge_base_integration": {
+    "lessons_learned_path": "_sdd/memory/lessons-learned.md",
+    "debug_templates_path": "_sdd/debug/templates/",
+    "auto_update": true
+  },
+
+  "performance_metrics": {
+    "min_analysis_accuracy": 0.90,
+    "max_response_time": 45000,
+    "min_solution_quality": 0.80
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "agent_id": "learner",
+  "name": "SDD 学习专家",
+  "description": "负责SDD经验学习和知识沉淀的智能体，从项目实践中提炼最佳实践",
+  "version": "1.0.0",
+  "type": "general-purpose",
+  "subtype": "learner",
+  "category": "general",
+  "capabilities": [
+    "经验总结",
+    "知识提取",
+    "最佳实践识别",
+    "模式抽象",
+    "知识库更新",
+    "防错机制建立"
+  ],
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "learning_context": {
+        "type": "string",
+        "enum": ["project_completion", "phase_review", "failure_analysis", "success_analysis"],
+        "description": "学习上下文类型",
+        "required": true
+      },
+      "project_context": {
+        "type": "string",
+        "description": "项目背景和上下文"
+      },
+      "experiences": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string", "enum": ["success", "failure", "challenge", "innovation"]},
+            "description": {"type": "string"},
+            "outcome": {"type": "string"},
+            "lessons": {"type": "array", "items": {"type": "string"}},
+            "metrics": {"type": "object"}
+          }
+        }
+      },
+      "learning_objectives": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "学习目标列表"
+      }
+    },
+    "required": ["learning_context"]
+  },
+
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "learning_result": {
+        "type": "object",
+        "properties": {
+          "lessons_learned": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "lesson_id": {"type": "string"},
+                "category": {"type": "string"},
+                "description": {"type": "string"},
+                "applicability": {"type": "string"},
+                "best_practice": {"type": "boolean"}
+              }
+            }
+          },
+          "best_practices": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "practice_id": {"type": "string"},
+                "title": {"type": "string"},
+                "description": {"type": "string"},
+                "implementation_guide": {"type": "string"},
+                "success_factors": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          },
+          "knowledge_updates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "knowledge_area": {"type": "string"},
+                "update_type": {"type": "string"},
+                "new_insights": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          },
+          "prevention_strategies": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "risk_pattern": {"type": "string"},
+                "prevention_measures": {"type": "array", "items": {"type": "string"}},
+                "detection_methods": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          },
+          "next_learning_actions": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+
+  "sdd_workflow_integration": {
+    "primary_phases": ["learning_phase", "quality_assurance", "project_completion"],
+    "command_orchestration": [
+      "lessons-capture",
+      "best-practices",
+      "knowledge-base-update",
+      "prevention-strategies"
+    ],
+    "collaboration_agents": ["analyzer", "constitution-guardian", "planner"]
+  },
+
+  "learning_methods": {
+    "experience_extraction": [
+      "root_cause_analysis",
+      "success_factor_analysis",
+      "pattern_recognition",
+      "cross_project_comparison"
+    ],
+    "knowledge_organization": [
+      "categorization",
+      "prioritization",
+      "abstraction",
+      "generalization"
+    ],
+    "continuous_improvement": [
+      "feedback_loops",
+      "metric_tracking",
+      "trend_analysis",
+      "best_practice_evolution"
+    ]
+  },
+
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "TodoWrite"
+  ],
+
+  "specializations": [
+    "experience_analysis",
+    "pattern_recognition",
+    "knowledge_management",
+    "best_practice_identification",
+    "continuous_improvement"
+  ],
+
+  "workflow_support": [
+    "sdd-lifecycle/learning-phase"
+  ],
+
+  "quality_metrics": {
+    "learning_effectiveness": 0.85,
+    "knowledge_retention": 0.80,
+    "practice_adoption": 0.75,
+    "improvement_impact": 0.70
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "agent_type": "implementer",
+  "version": "1.0.0",
+  "description": "实现专家 - 负责代码实现、单元测试和质量保证",
+  "capabilities": [
+    "代码实现和重构",
+    "单元测试和集成测试编写",
+    "代码审查和质量检查",
+    "文档更新和维护",
+    "性能优化和调试"
+  ],
+  "expertise": {
+    "primary": [
+      "TypeScript严格模式开发",
+      "Next.js 15 App Router开发",
+      "React 19组件开发",
+      "Cloudflare Edge Runtime编程",
+      "Repository Pattern实现"
+    ],
+    "secondary": [
+      "API路由开发",
+      "Server Actions编写",
+      "Prisma类型安全",
+      "Zod验证模式",
+      "Vitest测试框架"
+    ]
+  },
+  "scope": {
+    "responsibilities": [
+      "根据技术规范实现高质量代码",
+      "编写全面的单元测试和集成测试",
+      "确保代码符合项目编码规范",
+      "优化代码性能和Edge Runtime兼容性",
+      "维护技术文档和代码注释"
+    ],
+    "deliverables": [
+      "生产就绪的源代码",
+      "完整的测试套件",
+      "代码审查报告",
+      "性能优化建议",
+      "更新的技术文档"
+    ]
+  },
+  "triggers": [
+    {
+      "event": "development_task",
+      "condition": "新功能开发或任务实现",
+      "priority": "high"
+    },
+    {
+      "event": "bug_fix",
+      "condition": "缺陷修复和问题解决",
+      "priority": "high"
+    },
+    {
+      "event": "feature_enhancement",
+      "condition": "现有功能增强和优化",
+      "priority": "medium"
+    },
+    {
+      "event": "performance_optimization",
+      "condition": "性能问题优化和代码重构",
+      "priority": "medium"
+    }
+  ],
+  "workflow_integration": {
+    "entry_points": [
+      "/task:execute",
+      "/cli:execute",
+      "/workflow:tdd-plan"
+    ],
+    "collaboration": {
+      "planner": {
+        "interaction": "接收技术方案和实现指南",
+        "deliverables": ["实现代码", "测试用例", "进度报告"]
+      },
+      "analyzer": {
+        "interaction": "获取代码质量反馈和优化建议",
+        "deliverables": ["优化代码", "质量改进", "性能提升"]
+      },
+      "debugger": {
+        "interaction": "接收问题诊断和修复方案",
+        "deliverables": ["问题修复", "回归测试", "预防措施"]
+      }
+    }
+  },
+  "coding_standards": {
+    "typescript_rules": {
+      "strict_mode": "enabled",
+      "no_any": "enforced",
+      "type_coverage": "100%",
+      "interface_usage": "preferred"
+    },
+    "react_patterns": {
+      "functional_components": "preferred",
+      "hooks_usage": "modern",
+      "props_typing": "strict",
+      "error_boundaries": "implemented"
+    },
+    "nextjs_best_practices": {
+      "app_router": "used",
+      "server_components": "appropriate",
+      "client_components": "minimal",
+      "api_routes": "edge_optimized"
+    },
+    "cloudflare_edge_compatibility": {
+      "no_node_api": "enforced",
+      "web_api_only": "required",
+      "stateless_design": "required",
+      "async_await": "preferred"
+    }
+  },
+  "testing_strategy": {
+    "unit_testing": {
+      "framework": "vitest",
+      "coverage": "min_80_percent",
+      "mock_strategy": "dependency_injection",
+      "test_patterns": ["AAA", "Given_When_Then"]
+    },
+    "integration_testing": {
+      "scope": ["api_endpoints", "database_operations", "external_services"],
+      "environment": "jsdom",
+      "fixtures": "automated",
+      "cleanup": "ensured"
+    },
+    "component_testing": {
+      "library": "testing_library",
+      "approach": "behavior_driven",
+      "accessibility": "tested",
+      "responsive": "validated"
+    }
+  },
+  "code_generation_templates": {
+    "api_route": {
+      "path": "app/api/{route}/route.ts",
+      "template": "import { withMiddleware } from '@/lib/api/middleware';\nimport { successResponse, errorResponse } from '@/lib/api/response';\nimport { z } from 'zod';\n\nconst {schema} = z.object({\n  // TODO: 定义请求模式\n});\n\nexport async function GET(request: Request) {\n  return withMiddleware(request, async () => {\n    try {\n      // TODO: 实现{route}查询逻辑\n      return successResponse({ data: 'Hello, World!' });\n    } catch (error) {\n      return errorResponse(error);\n    }\n  });\n}\n\nexport async function POST(request: Request) {\n  return withMiddleware(request, async () => {\n    const body = await request.json();\n    const validatedData = schema.parse(body);\n    \n    try {\n      // TODO: 实现{route}创建逻辑\n      return successResponse({ data: validatedData });\n    } catch (error) {\n      return errorResponse(error);\n    }\n  });\n}",
+      "test_template": "import { describe, it, expect, vi, beforeEach } from 'vitest';\nimport { GET, POST } from '@/app/api/{route}/route';\n\n// TODO: 添加必要的mock\n\ndescribe('{route} API', () => {\n  beforeEach(() => {\n    vi.clearAllMocks();\n  });\n\n  describe('GET', () => {\n    it('should return success response', async () => {\n      // TODO: 实现测试用例\n      const request = new Request('http://localhost/api/{route}');\n      const response = await GET(request);\n      expect(response.status).toBe(200);\n    });\n  });\n\n  describe('POST', () => {\n    it('should create resource successfully', async () => {\n      // TODO: 实现测试用例\n      const body = { /* TODO: 添加测试数据 */ };\n      const request = new Request('http://localhost/api/{route}', {\n        method: 'POST',\n        body: JSON.stringify(body)\n      });\n      const response = await POST(request);\n      expect(response.status).toBe(201);\n    });\n  });\n});"
+    },
+    "repository": {
+      "path": "repositories/{model}.repository.ts",
+      "template": "import { D1Database } from '@cloudflare/workers-types';\nimport { Create{Model}Dto, Update{Model}Dto, {Model} } from '@/types/{model}.types';\nimport { RepositoryError } from '@/lib/errors';\n\nexport class {Model}Repository {\n  constructor(private db: D1Database) {}\n\n  async create(data: Create{Model}Dto): Promise<{Model}> {\n    try {\n      const stmt = this.db.prepare(`\n        INSERT INTO {table_name} ({columns})\n        VALUES ({values})\n        RETURNING *\n      `);\n      \n      const result = await stmt.bind(...Object.values(data)).first();\n      return result as {Model};\n    } catch (error) {\n      throw new RepositoryError('Failed to create {model}', error);\n    }\n  }\n\n  async findById(id: string): Promise<{Model} | null> {\n    try {\n      const result = await this.db\n        .prepare(`SELECT * FROM {table_name} WHERE id = ?`)\n        .bind(id)\n        .first();\n      return result as {Model} | null;\n    } catch (error) {\n      throw new RepositoryError('Failed to find {model} by id', error);\n    }\n  }\n\n  async findAll(filters?: Partial<{Model}>): Promise<{Model}[]> {\n    try {\n      let query = 'SELECT * FROM {table_name}';\n      const params: any[] = [];\n\n      if (filters && Object.keys(filters).length > 0) {\n        const conditions = Object.keys(filters).map(key => `${key} = ?`);\n        query += ' WHERE ' + conditions.join(' AND ');\n        params.push(...Object.values(filters));\n      }\n\n      const result = await this.db.prepare(query).bind(...params).all();\n      return result.results as {Model}[];\n    } catch (error) {\n      throw new RepositoryError('Failed to find all {models}', error);\n    }\n  }\n\n  async update(id: string, data: Update{Model}Dto): Promise<{Model}> {\n    try {\n      const setClause = Object.keys(data).map(key => `${key} = ?`).join(', ');\n      const stmt = this.db.prepare(`\n        UPDATE {table_name} \n        SET ${setClause}\n        WHERE id = ?\n        RETURNING *\n      `);\n      \n      const result = await stmt.bind(...Object.values(data), id).first();\n      return result as {Model};\n    } catch (error) {\n      throw new RepositoryError('Failed to update {model}', error);\n    }\n  }\n\n  async delete(id: string): Promise<boolean> {\n    try {\n      const result = await this.db\n        .prepare(`DELETE FROM {table_name} WHERE id = ?`)\n        .bind(id)\n        .run();\n      return result.changes > 0;\n    } catch (error) {\n      throw new RepositoryError('Failed to delete {model}', error);\n    }\n  }\n}",
+      "test_template": "import { describe, it, expect, beforeEach, vi } from 'vitest';\nimport { {Model}Repository } from '@/repositories/{model}.repository';\nimport { RepositoryError } from '@/lib/errors';\n\ndescribe('{Model}Repository', () => {\n  let repository: {Model}Repository;\n  let mockDb: any;\n\n  beforeEach(() => {\n    mockDb = {\n      prepare: vi.fn().mockReturnThis(),\n      bind: vi.fn().mockReturnThis(),\n      first: vi.fn(),\n      all: vi.fn(),\n      run: vi.fn()\n    };\n    repository = new {Model}Repository(mockDb);\n  });\n\n  describe('create', () => {\n    it('should create a {model} successfully', async () => {\n      const createData = { /* TODO: 添加创建数据 */ };\n      const expectedResult = { id: '1', ...createData };\n      \n      mockDb.first.mockResolvedValue(expectedResult);\n      \n      const result = await repository.create(createData);\n      expect(result).toEqual(expectedResult);\n    });\n\n    it('should throw RepositoryError on failure', async () => {\n      const createData = { /* TODO: 添加创建数据 */ };\n      mockDb.first.mockRejectedValue(new Error('Database error'));\n      \n      await expect(repository.create(createData)).rejects.toThrow(RepositoryError);\n    });\n  });\n\n  // TODO: 添加更多测试用例\n});"
+    },
+    "react_component": {
+      "path": "components/{component}/{component}.tsx",
+      "template": "import React from 'react';\nimport { cn } from '@/lib/utils';\n\ninterface {Component}Props {\n  className?: string;\n  children?: React.ReactNode;\n  // TODO: 添加其他props\n}\n\nexport function {Component}({ className, children, ...props }: {Component}Props) {\n  return (\n    <div className={cn('base-class', className)} {...props}>\n      {children}\n      {/* TODO: 实现{component}内容 */}\n    </div>\n  );\n}",
+      "test_template": "import { describe, it, expect } from 'vitest';\nimport { render, screen } from '@testing-library/react';\nimport { {Component} } from '@/components/{component}/{component}';\n\ndescribe('{Component}', () => {\n  it('should render correctly', () => {\n    render(<{Component} />);\n    // TODO: 添加断言\n  });\n\n  it('should apply custom className', () => {\n    render(<{Component} className=\"custom-class\" />);\n    // TODO: 添加断言\n  });\n\n  // TODO: 添加更多测试用例\n});"
+    }
+  },
+  "quality_assurance": {
+    "code_review_checklist": [
+      "TypeScript类型安全检查",
+      "React组件模式正确性",
+      "Edge Runtime兼容性",
+      "错误处理完整性",
+      "性能考虑",
+      "安全性检查",
+      "可测试性评估"
+    ],
+    "performance_optimization": {
+      "react_optimizations": ["memo_usage", "callback_optimization", "lazy_loading"],
+      "edge_optimizations": ["bundle_size", "cold_start", "memory_usage"],
+      "api_optimizations": ["query_efficiency", "caching_strategy", "response_format"]
+    },
+    "security_guidelines": {
+      "input_validation": "zod_schemas",
+      "authentication": "session_validation",
+      "authorization": "role_checks",
+      "data_sanitization": "xss_prevention"
+    }
+  },
+  "documentation_standards": {
+    "code_comments": {
+      "jSDoc_style": "required_for_public_apis",
+      "inline_comments": "complex_logic_only",
+      "todo_format": "standardized",
+      "example_code": "included"
+    },
+    "readme_updates": {
+      "component_usage": "documented",
+      "api_examples": "included",
+      "installation_instructions": "clear",
+      "troubleshooting": "comprehensive"
+    }
+  },
+  "tools_and_environments": {
+    "development_tools": [
+      "VS Code + TypeScript Hero",
+      "Git + GitHub Copilot",
+      "pnpm package manager",
+      "Chrome DevTools",
+      "Cloudflare Dashboard"
+    ],
+    "testing_tools": [
+      "Vitest + jsdom",
+      "Testing Library React",
+      "MSW for API mocking",
+      "Vitest coverage reporter"
+    ],
+    "build_tools": [
+      "Next.js production build",
+      "Cloudflare Wrangler",
+      "ESLint + Prettier",
+      "TypeScript compiler"
+    ]
+  }
+}

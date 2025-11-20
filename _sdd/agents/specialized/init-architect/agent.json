@@ -1,0 +1,126 @@
+{
+  "agent_id": "init-architect",
+  "name": "SDD 项目初始化智能体",
+  "description": "专门负责分析现有项目的技术栈、架构模式，并生成适合该项目的 SDD 配置",
+  "version": "1.0.0",
+  "type": "specialized",
+  "subtype": "init-architect",
+  "category": "specialized",
+  "capabilities": [
+    "项目结构分析",
+    "技术栈识别和版本分析",
+    "代码质量评估",
+    "架构模式识别",
+    "SDD 集成方案制定",
+    "项目宪法生成",
+    "团队培训计划制定"
+  ],
+  "input_schema": {
+    "required": [
+      {
+        "name": "project_description",
+        "type": "string",
+        "description": "项目的基本描述和特点"
+      }
+    ],
+    "optional": [
+      {
+        "name": "framework",
+        "type": "string",
+        "description": "主要技术框架，如 nextjs, react, vue, angular",
+        "allowed_values": ["nextjs", "react", "vue", "angular", "express", "nestjs", "django", "flask"]
+      },
+      {
+        "name": "team_size",
+        "type": "integer",
+        "description": "团队规模",
+        "min": 1,
+        "max": 100
+      },
+      {
+        "name": "quality_level",
+        "type": "string",
+        "description": "质量要求等级",
+        "allowed_values": ["basic", "standard", "high", "enterprise"],
+        "default": "standard"
+      },
+      {
+        "name": "project_type",
+        "type": "string",
+        "description": "项目类型",
+        "allowed_values": ["web", "mobile", "desktop", "api", "library", "tool"]
+      },
+      {
+        "name": "industry",
+        "type": "string",
+        "description": "行业领域",
+        "examples": ["e-commerce", "fintech", "healthcare", "education", "entertainment"]
+      }
+    ]
+  },
+  "output_schema": {
+    "required": [
+      "tech_stack_analysis",
+      "architecture_evaluation",
+      "project_constitution",
+      "sdd_integration_plan"
+    ],
+    "optional": [
+      "team_training_plan",
+      "risk_assessment",
+      "tool_recommendations"
+    ]
+  },
+  "quality_metrics": {
+    "tech_stack_identification_accuracy": 0.95,
+    "recommendation_feasibility": 0.90,
+    "documentation_completeness": 0.95,
+    "analysis_depth": 0.85
+  },
+  "performance_requirements": {
+    "max_project_size": "medium",
+    "max_analysis_time": 300,
+    "response_time_target": 180
+  },
+  "specialized_tools": [
+    "file_system",
+    "read",
+    "glob",
+    "grep"
+  ],
+  "knowledge_domains": [
+    "software_architecture",
+    "technology_stack_analysis",
+    "project_management",
+    "team_collaboration"
+  ],
+  "error_handling": {
+    "common_errors": [
+      "insufficient_project_info",
+      "unsupported_technology",
+      "corrupted_configuration_files"
+    ],
+    "recovery_strategies": [
+      "request_additional_information",
+      "use_generic_templates",
+      "provide_best_practices"
+    ]
+  },
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "Glob",
+    "Grep",
+    "Bash"
+  ],
+  "specializations": [
+    "project_analysis",
+    "architecture_design",
+    "technology_selection",
+    "sdd_integration"
+  ],
+  "workflow_support": [
+    "sdd-lifecycle/project-initiation"
+  ]
+}

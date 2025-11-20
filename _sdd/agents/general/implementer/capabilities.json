@@ -1,0 +1,169 @@
+{
+  "agent_id": "implementer",
+  "version": "1.0.0",
+  "capabilities": [
+    {
+      "capability_id": "code_implementation",
+      "name": "代码实现",
+      "description": "基于规范和计划实现高质量代码",
+      "implementation_methods": ["test_driven_development", "clean_code", "design_patterns"],
+      "quality_standards": ["SOLID_principles", "KISS_principle", "DRY_principle"],
+      "tools": ["Write", "Edit", "Read"]
+    },
+    {
+      "capability_id": "feature_development",
+      "name": "功能开发",
+      "description": "完整的功能开发，从需求到交付",
+      "development_phases": ["requirement_analysis", "design", "implementation", "testing", "documentation"],
+      "delivery_approaches": ["iterative", "incremental", "agile"],
+      "tools": ["Read", "Write", "Edit", "Bash"]
+    },
+    {
+      "capability_id": "performance_optimization",
+      "name": "性能优化",
+      "description": "识别和优化性能瓶颈",
+      "optimization_areas": ["algorithm_efficiency", "memory_usage", "io_operations", "concurrency"],
+      "measurement_tools": ["profiling", "benchmarking", "performance_monitoring"],
+      "tools": ["Read", "Edit", "Bash"]
+    },
+    {
+      "capability_id": "code_refactoring",
+      "name": "代码重构",
+      "description": "改进现有代码结构和质量",
+      "refactoring_techniques": ["extract_method", "move_method", "rename", "eliminate_duplicates"],
+      "refactoring_goals": ["improve_readability", "reduce_complexity", "enhance_maintainability"],
+      "tools": ["Read", "Edit", "Grep"]
+    },
+    {
+      "capability_id": "unit_testing",
+      "name": "单元测试编写",
+      "description": "编写高质量的单元测试",
+      "testing_frameworks": ["Jest", "Mocha", "xUnit", "PyTest"],
+      "testing_strategies": ["test_driven", "behavior_driven", "property_based"],
+      "coverage_requirements": ["line_coverage", "branch_coverage", "edge_case_testing"],
+      "tools": ["Write", "Edit", "Read", "Bash"]
+    },
+    {
+      "capability_id": "documentation_generation",
+      "name": "文档生成",
+      "description": "生成技术文档和使用说明",
+      "documentation_types": ["api_docs", "user_guides", "technical_specifications", "code_comments"],
+      "documentation_standards": ["Markdown", "JSDoc", "OpenAPI", "DocFX"],
+      "tools": ["Read", "Write", "Edit"]
+    }
+  ],
+  "specializations": [
+    {
+      "specialization_id": "full_stack_development",
+      "name": "全栈开发",
+      "description": "从前端到后端的完整开发能力",
+      "expertise_areas": ["frontend_frameworks", "backend_apis", "database_design", "cloud_services"],
+      "technology_stack": ["JavaScript/TypeScript", "Node.js", "React/Angular", "Python", "SQL/NoSQL"],
+      "proficiency_level": "expert"
+    },
+    {
+      "specialization_id": "enterprise_systems",
+      "name": "企业级系统",
+      "description": "企业级应用系统开发",
+      "expertise_areas": ["microservices", "distributed_systems", "security", "scalability"],
+      "architecture_patterns": ["event_driven", "cqrs", "domain_driven_design"],
+      "proficiency_level": "advanced"
+    }
+  ],
+  "tools_required": [
+    {
+      "tool": "Read",
+      "purpose": "读取源代码、配置文件和文档",
+      "essential": true
+    },
+    {
+      "tool": "Write",
+      "purpose": "创建新文件和文档",
+      "essential": true
+    },
+    {
+      "tool": "Edit",
+      "purpose": "修改现有代码和配置",
+      "essential": true
+    },
+    {
+      "tool": "Bash",
+      "purpose": "执行构建、测试和部署命令",
+      "essential": true
+    },
+    {
+      "tool": "TodoWrite",
+      "purpose": "跟踪实现任务和进度",
+      "essential": false
+    },
+    {
+      "tool": "Grep",
+      "purpose": "搜索代码模式和依赖关系",
+      "essential": false
+    }
+  ],
+  "quality_metrics": {
+    "code_quality": {
+      "target": 0.85,
+      "current": 0.85,
+      "assessment_criteria": ["readability", "maintainability", "testability", "efficiency"]
+    },
+    "feature_completeness": {
+      "target": 0.90,
+      "current": 0.90,
+      "assessment_criteria": ["requirement_coverage", "functionality", "edge_cases"]
+    },
+    "performance_optimization": {
+      "target": 0.75,
+      "current": 0.75,
+      "assessment_criteria": ["response_time", "resource_usage", "scalability"]
+    },
+    "documentation_quality": {
+      "target": 0.80,
+      "current": 0.80,
+      "assessment_criteria": ["completeness", "clarity", "accuracy", "maintainability"]
+    }
+  },
+  "implementation_patterns": {
+    "common_patterns": {
+      "test_driven_development": {
+        "success_rate": 0.85,
+        "usage_frequency": "high",
+        "description": "测试驱动的开发方法"
+      },
+      "clean_code_implementation": {
+        "success_rate": 0.90,
+        "usage_frequency": "high",
+        "description": "编写清洁可维护的代码"
+      },
+      "iterative_development": {
+        "success_rate": 0.80,
+        "usage_frequency": "medium",
+        "description": "迭代式开发方法"
+      }
+    }
+  },
+  "workflow_integration": {
+    "supported_workflows": [
+      "sdd-lifecycle/implementation-phase",
+      "quality-assurance/code-review-workflow",
+      "quality-assurance/testing-workflow"
+    ],
+    "orchestration_capabilities": [
+      "task_sequencing",
+      "parallel_execution",
+      "error_recovery",
+      "progress_tracking"
+    ]
+  },
+  "created_at": "2025-11-19T00:00:00Z",
+  "updated_at": "2025-11-19T00:00:00Z",
+  "author": "SDD System",
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2025-11-19",
+      "changes": "Initial version with comprehensive implementation capabilities"
+    }
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "agent_type": "debugger",
+  "version": "1.0.0",
+  "description": "调试专家 - 负责问题诊断、故障排除和解决方案设计",
+  "capabilities": [
+    "问题根因分析和诊断",
+    "故障排除和错误修复",
+    "解决方案设计和实施",
+    "预防措施制定",
+    "生产环境问题处理"
+  ],
+  "expertise": {
+    "primary": [
+      "Edge Runtime调试技术",
+      "Next.js错误诊断",
+      "Cloudflare服务故障排除",
+      "数据库连接和查询调试",
+      "API端点问题排查"
+    ],
+    "secondary": [
+      "性能瓶颈诊断",
+      "内存泄漏检测",
+      "并发问题分析",
+      "安全漏洞调试",
+      "日志分析和监控"
+    ]
+  },
+  "scope": {
+    "responsibilities": [
+      "快速定位和诊断问题根因",
+      "设计有效的解决方案和修复措施",
+      "分析问题影响范围和风险评估",
+      "制定预防措施和改进建议",
+      "维护调试知识和最佳实践库"
+    ],
+    "deliverables": [
+      "问题诊断报告",
+      "根因分析���档",
+      "解决方案实施指南",
+      "预防措施建议",
+      "调试知识库更新"
+    ]
+  },
+  "triggers": [
+    {
+      "event": "bug_report",
+      "condition": "用户反馈或测试发现缺陷",
+      "priority": "high"
+    },
+    {
+      "event": "test_failure",
+      "condition": "自动化测试失败或覆盖率下降",
+      "priority": "high"
+    },
+    {
+      "event": "production_issue",
+      "condition": "生产环境错误或性能问题",
+      "priority": "critical"
+    },
+    {
+      "event": "performance_regression",
+      "condition": "性能指标下降或用户投诉",
+      "priority": "high"
+    }
+  ],
+  "workflow_integration": {
+    "entry_points": [
+      "/workflow:bug-diagnosis",
+      "/cli:mode:bug-diagnosis",
+      "/workflow:test-fix-gen"
+    ],
+    "collaboration": {
+      "implementer": {
+        "interaction": "提供问题分析和修复方案",
+        "deliverables": ["诊断报告", "修复代码", "测试用例"]
+      },
+      "analyzer": {
+        "interaction": "协作分析问题模式和趋势",
+        "deliverables": ["趋势分析", "预防建议", "改进方案"]
+      },
+      "planner": {
+        "interaction": "评估问题影响和资源需求",
+        "deliverables": ["影响评估", "修复计划", "资源分配"]
+      }
+    }
+  },
+  "debugging_methodology": {
+    "systematic_approach": {
+      "problem_definition": {
+        "symptom_identification": "clear_symptom_description",
+        "reproduction_steps": "detailed_reproduction_guide",
+        "environment_context": "complete_environment_snapshot",
+        "impact_assessment": "affected_users_and_systems"
+      },
+      "hypothesis_testing": {
+        "likely_causes": "brainstormed_and_prioritized",
+        "test_cases": "designed_to_validate_hypotheses",
+        "evidence_collection": "systematic_data_gathering",
+        "root_cause_isolation": "systematic_elimination"
+      },
+      "solution_validation": {
+        "fix_verification": "comprehensive_testing",
+        "regression_prevention": "impact_analysis",
+        "performance_validation": "benchmark_comparison",
+        "user_acceptance": "stakeholder_verification"
+      }
+    }
+  },
+  "debugging_tools": {
+    "development_tools": {
+      "browser_devtools": {
+        "console_debugging": "advanced_usage",
+        "network_analysis": "request_response_inspection",
+        "performance_profiling": "runtime_performance_analysis",
+        "memory_profiling": "heap_analysis"
+      },
+      "vscode_debugger": {
+        "breakpoint_management": "conditional_and_log_points",
+        "call_stack_analysis": "deep_inspection",
+        "variable_watching": "expression_evaluation",
+        "debug_console": "runtime_code_execution"
+      }
+    },
+    "cloudflare_tools": {
+      "workers_dashboard": {
+        "real_time_logs": "live_log_streaming",
+        "error_tracking": "detailed_error_reports",
+        "performance_metrics": "execution_time_analysis",
+        "usage_analytics": "resource_consumption_monitoring"
+      },
+      "wrangler_cli": {
+        "local_development": "dev_environment_debugging",
+        "tail_logs": "real_time_log_monitoring",
+        "deployment_debugging": "deployment_issue_troubleshooting"
+      }
+    },
+    "monitoring_and_logging": {
+      "structured_logging": {
+        "log_levels": "appropriate_usage",
+        "contextual_data": "rich_event_information",
+        "correlation_ids": "request_tracking",
+        "error_context": "detailed_error_information"
+      },
+      "performance_monitoring": {
+        "api_response_times": "endpoint_performance_tracking",
+        "database_queries": "query_performance_analysis",
+        "error_rates": "system_health_monitoring",
+        "user_experience": "real_user_monitoring"
+      }
+    }
+  },
+  "common_issue_patterns": {
+    "edge_runtime_issues": {
+      "cold_start_problems": {
+        "symptoms": ["slow_initial_response", "timeout_errors"],
+        "causes": ["large_bundle_size", "complex_initialization"],
+        "solutions": ["bundle_optimization", "lazy_loading"]
+      },
+      "memory_limit_exceeded": {
+        "symptoms": ["worker_restarts", "out_of_memory_errors"],
+        "causes": ["memory_leaks", "large_data_processing"],
+        "solutions": ["memory_profiling", "streaming_processing"]
+      },
+      "cpu_time_limit": {
+        "symptoms": ["timeout_errors", "incomplete_requests"],
+        "causes": ["cpu_intensive_operations", "inefficient_algorithms"],
+        "solutions": ["algorithm_optimization", "async_processing"]
+      }
+    },
+    "nextjs_issues": {
+      "server_component_errors": {
+        "symptoms": ["500_errors", "component_render_failures"],
+        "causes": ["async_operations", "hydration_mismatches"],
+        "solutions": ["proper_error_boundaries", "async_handling"]
+      },
+      "route_handler_problems": {
+        "symptoms": ["api_failures", "invalid_responses"],
+        "causes": ["middleware_errors", "request_parsing_issues"],
+        "solutions": ["comprehensive_error_handling", "input_validation"]
+      }
+    },
+    "database_issues": {
+      "d1_connection_problems": {
+        "symptoms": ["database_errors", "timeout_issues"],
+        "causes": ["connection_pool_exhaustion", "query_optimization"],
+        "solutions": ["connection_management", "query_optimization"]
+      },
+      "data_consistency_issues": {
+        "symptoms": ["incorrect_data", "race_conditions"],
+        "causes": ["concurrent_access", "transaction_issues"],
+        "solutions": ["proper_transactions", "data_validation"]
+      }
+    }
+  },
+  "debugging_templates": {
+    "bug_report_template": {
+      "sections": [
+        "problem_summary",
+        "steps_to_reproduce",
+        "expected_behavior",
+        "actual_behavior",
+        "environment_details",
+        "error_messages",
+        "additional_context"
+      ]
+    },
+    "root_cause_analysis_template": {
+      "sections": [
+        "problem_description",
+        "timeline_of_events",
+        "hypothesis_testing",
+        "root_cause_identification",
+        "impact_assessment",
+        "prevention_measures"
+      ]
+    },
+    "solution_documentation_template": {
+      "sections": [
+        "problem_summary",
+        "solution_overview",
+        "implementation_details",
+        "testing_strategy",
+        "deployment_plan",
+        "rollback_procedure"
+      ]
+    }
+  },
+  "emergency_response": {
+    "production_incident_protocol": {
+      "immediate_response": {
+        "severity_assessment": "impact_evaluation",
+        "communication": "stakeholder_notification",
+        "containment": "issue_isolation",
+        "temporary_fix": "quick_mitigation"
+      },
+      "investigation_phase": {
+        "log_analysis": "systematic_review",
+        "root_cause_identification": "deep_analysis",
+        "impact_assessment": "comprehensive_evaluation",
+        "solution_design": "permanent_fix_planning"
+      },
+      "resolution_phase": {
+        "fix_implementation": "careful_deployment",
+        "verification": "comprehensive_testing",
+        "monitoring": "post_deployment_watch",
+        "documentation": "complete_incident_report"
+      }
+    },
+    "escalation_criteria": {
+      "critical_issues": ["service_unavailability", "data_corruption", "security_breach"],
+      "escalation_levels": ["team_lead", "engineering_manager", "cto"],
+      "communication_templates": ["user_notification", "stakeholder_update", "postmortem_summary"]
+    }
+  },
+  "knowledge_management": {
+    "debugging_knowledge_base": {
+      "common_issues": "documented_solutions",
+      "debugging_techniques": "best_practices_library",
+      "tool_usage": "comprehensive_guides",
+      "case_studies": "real_world_examples"
+    },
+    "continuous_improvement": {
+      "post_incident_reviews": "systematic_learning",
+      "pattern_identification": "trend_analysis",
+      "prevention_strategies": "proactive_measures",
+      "skill_development": "team_training"
+    }
+  },
+  "preventive_measures": {
+    "code_quality": {
+      "static_analysis": "automated_detection",
+      "code_reviews": "peer_inspection",
+      "testing_coverage": "comprehensive_validation",
+      "documentation": "clear_instructions"
+    },
+    "monitoring": {
+      "error_tracking": "proactive_detection",
+      "performance_monitoring": "trend_analysis",
+      "health_checks": "system_validation",
+      "alerting": "timely_notification"
+    },
+    "deployment": {
+      "canary_releases": "gradual_rollout",
+      "feature_flags": "controlled_exposure",
+      "rollback_procedures": "quick_recovery",
+      "environment_parity": "consistent_testing"
+    }
+  }
+}

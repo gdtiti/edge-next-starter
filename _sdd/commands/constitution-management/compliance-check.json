@@ -1,0 +1,84 @@
+{
+  "command_id": "compliance-check",
+  "name": "宪法合规性检查",
+  "version": "1.0.0",
+  "category": "constitution-management",
+  "type": "atomic",
+  "description": "检查开发活动是否符合项目宪法要求",
+
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "check_scope": {
+        "type": "string",
+        "enum": ["full_project", "recent_changes", "specific_artifact"],
+        "description": "检查范围",
+        "default": "recent_changes"
+      },
+      "constitution_articles": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "检查的宪法条款，为空则检查全部"
+      },
+      "target_path": {
+        "type": "string",
+        "description": "检查目标路径或文件",
+        "default": "."
+      },
+      "severity_level": {
+        "type": "string",
+        "enum": ["all", "violations_only", "warnings_and_above"],
+        "description": "违规���重级别过滤",
+        "default": "all"
+      }
+    },
+    "required": []
+  },
+
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "compliance_report": {
+        "type": "object",
+        "properties": {
+          "overall_compliance": {"type": "boolean"},
+          "compliance_score": {"type": "number"},
+          "checked_articles": {"type": "array", "items": {"type": "string"}},
+          "violations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "article": {"type": "string"},
+                "severity": {"type": "string"},
+                "description": {"type": "string"},
+                "affected_files": {"type": "array", "items": {"type": "string"}},
+                "remediation": {"type": "string"}
+              }
+            }
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "improvement_suggestions": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+
+  "implementation": {
+    "tools": ["Read", "Grep", "Write"],
+    "timeout": 30000,
+    "workflow_phase": "constitution_compliance"
+  },
+
+  "sdd_workflow": {
+    "phase": "constitution_compliance",
+    "agent": "constitution-guardian",
+    "next_commands": ["enforce-standards", "suggest-improvements"]
+  }
+}

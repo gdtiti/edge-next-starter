@@ -1,0 +1,308 @@
+{
+  "workflow_name": "feature-development",
+  "version": "1.0.0",
+  "description": "新功能开发工作流 - 从需求分析到功能交付的完整流程",
+  "type": "development",
+  "estimated_duration": "3-7_days",
+  "agents_sequence": [
+    "planner",
+    "implementer",
+    "analyzer",
+    "learner"
+  ],
+  "triggers": [
+    "new_feature_request",
+    "user_story_approval",
+    "epic_breakdown_completion",
+    "sprint_planning"
+  ],
+  "quality_gates": {
+    "planning_gate": {
+      "agent": "planner",
+      "requirements": [
+        "requirement_specification_complete",
+        "technical_feasibility_confirmed",
+        "acceptance_criteria_defined",
+        "resource_requirements_assessed"
+      ],
+      "exit_criteria": "specification_documentation_approved"
+    },
+    "development_gate": {
+      "agent": "implementer",
+      "requirements": [
+        "implementation_code_complete",
+        "unit_test_coverage_80_percent",
+        "code_quality_checks_passed",
+        "documentation_updated"
+      ],
+      "exit_criteria": "code_review_approved"
+    },
+    "quality_gate": {
+      "agent": "analyzer",
+      "requirements": [
+        "performance_benchmarks_met",
+        "security_scan_clean",
+        "integration_tests_passed",
+        "architecture_compliance_verified"
+      ],
+      "exit_criteria": "quality_assurance_approved"
+    },
+    "completion_gate": {
+      "agent": "learner",
+      "requirements": [
+        "lessons_learned_documented",
+        "best_practices_identified",
+        "knowledge_base_updated",
+        "team_feedback_collected"
+      ],
+      "exit_criteria": "workflow_completion_certified"
+    }
+  },
+  "stages": {
+    "planning_stage": {
+      "agent": "planner",
+      "duration": "0.5-1_day",
+      "objectives": [
+        "analyze_business_requirements",
+        "design technical solution",
+        "create implementation plan",
+        "define acceptance criteria"
+      ],
+      "inputs": [
+        "business_requirements",
+        "user_stories",
+        "technical_constraints",
+        "resource_availability"
+      ],
+      "outputs": [
+        "technical_specification_document",
+        "implementation_plan",
+        "acceptance_criteria_checklist",
+        "risk_assessment_report"
+      ],
+      "deliverables": {
+        "technical_specification": {
+          "format": "markdown",
+          "sections": [
+            "overview_and_objectives",
+            "technical_approach",
+            "architecture_impact",
+            "api_design",
+            "data_model_changes",
+            "security_considerations",
+            "performance_requirements"
+          ]
+        },
+        "implementation_plan": {
+          "format": "markdown_with_gantt_chart",
+          "sections": [
+            "task_breakdown",
+            "timeline_and_milestones",
+            "resource_allocation",
+            "dependencies_and_critical_path",
+            "risk_mitigation_strategies"
+          ]
+        }
+      }
+    },
+    "development_stage": {
+      "agent": "implementer",
+      "duration": "2-4_days",
+      "objectives": [
+        "implement_feature_code",
+        "write comprehensive tests",
+        "update documentation",
+        "perform self-review"
+      ],
+      "inputs": [
+        "technical_specification",
+        "implementation_plan",
+        "existing_codebase",
+        "coding_standards"
+      ],
+      "outputs": [
+        "production_ready_code",
+        "complete_test_suite",
+        "updated_documentation",
+        "code_review_request"
+      ],
+      "deliverables": {
+        "source_code": {
+          "format": "typescript_files",
+          "quality_criteria": [
+            "typescript_strict_mode_compliance",
+            "eslint_zero_warnings",
+            "code_complexity_within_limits",
+            "edge_runtime_compatible"
+          ]
+        },
+        "test_suite": {
+          "format": "vitest_test_files",
+          "coverage_requirements": {
+            "statement_coverage": "min_80_percent",
+            "branch_coverage": "min_70_percent",
+            "function_coverage": "min_90_percent",
+            "critical_path_coverage": "100_percent"
+          }
+        }
+      }
+    },
+    "quality_assurance_stage": {
+      "agent": "analyzer",
+      "duration": "0.5-1_day",
+      "objectives": [
+        "analyze code quality",
+        "validate performance requirements",
+        "conduct security review",
+        "verify architecture compliance"
+      ],
+      "inputs": [
+        "implemented_code",
+        "test_results",
+        "performance_benchmarks",
+        "security_scan_reports"
+      ],
+      "outputs": [
+        "quality_analysis_report",
+        "performance_validation_results",
+        "security_assessment_report",
+        "architecture_compliance_certificate"
+      ],
+      "deliverables": {
+        "quality_report": {
+          "format": "markdown_with_charts",
+          "sections": [
+            "code_quality_metrics",
+            "performance_analysis",
+            "security_assessment",
+            "test_coverage_report",
+            "recommendations_and_improvements"
+          ]
+        }
+      }
+    },
+    "learning_stage": {
+      "agent": "learner",
+      "duration": "0.25_day",
+      "objectives": [
+        "capture lessons learned",
+        "identify best practices",
+        "update knowledge base",
+        "document improvements"
+      ],
+      "inputs": [
+        "complete_feature_implementation",
+        "quality_analysis_results",
+        "team_feedback",
+        "performance_metrics"
+      ],
+      "outputs": [
+        "lessons_learned_document",
+        "best_practices_summary",
+        "knowledge_base_updates",
+        "improvement_suggestions"
+      ],
+      "deliverables": {
+        "experience_summary": {
+          "format": "structured_markdown",
+          "sections": [
+            "challenge_overview",
+            "solutions_implemented",
+            "key_insights",
+            "applicable_patterns",
+            "future_improvements"
+          ]
+        }
+      }
+    }
+  },
+  "automation_integrations": {
+    "code_generation": {
+      "enabled": true,
+      "templates": [
+        "api_route_generation",
+        "repository_generation",
+        "component_generation",
+        "test_case_generation"
+      ]
+    },
+    "quality_checks": {
+      "automated_tests": "continuous_integration",
+      "code_analysis": "static_analysis_tools",
+      "security_scanning": "automated_vulnerability_scan",
+      "performance_monitoring": "benchmark_automation"
+    },
+    "documentation": {
+      "api_docs": "automatic_generation",
+      "code_comments": "ai_assisted_generation",
+      "change_log": "automated_updates"
+    }
+  },
+  "success_criteria": {
+    "functional": [
+      "all_acceptance_criteria_met",
+      "user_stories_fully_implemented",
+      "integration_tests_passing",
+      "user_acceptance_testing_complete"
+    ],
+    "technical": [
+      "code_quality_standards_met",
+      "performance_requirements_satisfied",
+      "security_checks_passed",
+      "architecture_compliance_verified"
+    ],
+    "process": [
+      "documentation_complete_and_updated",
+      "knowledge_transfer_successful",
+      "team_satisfaction_positive",
+      "timeline_within_estimates"
+    ]
+  },
+  "risk_management": {
+    "identified_risks": [
+      {
+        "risk": "requirement_changes_mid_development",
+        "probability": "medium",
+        "impact": "high",
+        "mitigation": "flexible_architecture_design",
+        "contingency": "buffer_time_in_timeline"
+      },
+      {
+        "risk": "technical_blockers",
+        "probability": "low",
+        "impact": "high",
+        "mitigation": "early_technical_validation",
+        "contingency": "alternative_approaches_ready"
+      },
+      {
+        "risk": "quality_issues",
+        "probability": "medium",
+        "impact": "medium",
+        "mitigation": "continuous_quality_monitoring",
+        "contingency": "additional_qa_resources"
+      }
+    ],
+    "monitoring": {
+      "daily_progress_checks": true,
+      "quality_gate_enforcement": true,
+      "stakeholder_communication": "regular_updates",
+      "risk_status_tracking": "continuous_monitoring"
+    }
+  },
+  "stakeholder_communication": {
+    "frequency": {
+      "daily_standup": "development_progress",
+      "weekly_review": "overall_status",
+      "milestone_update": "key_achievements"
+    },
+    "formats": {
+      "status_reports": "structured_progress_updates",
+      "demonstrations": "working_feature_showcases",
+      "documentation": "comprehensive_feature_docs"
+    },
+    "escalation": {
+      "criteria": ["timeline_risk", "quality_issues", "blocker_encountered"],
+      "process": "immediate_notification + mitigation_plan"
+    }
+  }
+}

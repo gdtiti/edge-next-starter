@@ -1,0 +1,104 @@
+{
+  "agent_id": "planner",
+  "name": "SDD 规划智能体",
+  "description": "负责制定项目宪法、功能规范、技术计划和任务分解的专业规划智能体",
+  "version": "1.0.0",
+  "type": "general-purpose",
+  "subtype": "planner",
+  "category": "general",
+  "capabilities": [
+    "项目宪法制定",
+    "功能规范创建",
+    "技术计划制定",
+    "任务分解",
+    "架构设计",
+    "依赖关系分析"
+  ],
+  "subtypes": {
+    "constitution": {
+      "description": "项目宪法制定",
+      "focus": "建立项目的根本性规则和开发准则",
+      "inputs": ["project_values", "technical_constraints", "quality_requirements"],
+      "outputs": ["project_constitution", "development_guidelines"]
+    },
+    "specify": {
+      "description": "功能规范创建",
+      "focus": "将用户需求转换为结构化的功能规范",
+      "inputs": ["user_requirements", "business_context", "stakeholder_needs"],
+      "outputs": ["functional_specification", "user_stories", "acceptance_criteria"]
+    },
+    "plan": {
+      "description": "技术计划制定",
+      "focus": "设计技术实现方案和架构",
+      "inputs": ["functional_specification", "technical_constraints", "resource_limits"],
+      "outputs": ["technical_plan", "architecture_design", "data_model", "api_design"]
+    },
+    "tasks": {
+      "description": "任务分解",
+      "focus": "将技术计划分解为可执行的任务清单",
+      "inputs": ["technical_plan", "team_capabilities", "timeline_constraints"],
+      "outputs": ["task_breakdown", "dependency_graph", "execution_plan"]
+    }
+  },
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "planning_type": {
+        "type": "string",
+        "enum": ["constitution", "specification", "technical_plan", "task_breakdown"],
+        "description": "规划类型",
+        "required": true
+      },
+      "context": {
+        "type": "object",
+        "description": "项目上下文",
+        "properties": {
+          "project_description": {"type": "string"},
+          "requirements": {"type": "array", "items": {"type": "string"}},
+          "constraints": {"type": "array", "items": {"type": "string"}},
+          "team_info": {"type": "object"},
+          "timeline": {"type": "string"}
+        }
+      }
+    },
+    "required": ["planning_type"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "planning_result": {
+        "type": "object",
+        "properties": {
+          "document_type": {"type": "string"},
+          "content": {"type": "string"},
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "version": {"type": "string"},
+              "created_at": {"type": "string"},
+              "quality_score": {"type": "number"}
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "WebSearch",
+    "TodoWrite"
+  ],
+  "specializations": [
+    "strategic_planning",
+    "technical_architecture",
+    "project_management",
+    "requirements_analysis"
+  ],
+  "workflow_support": [
+    "sdd-lifecycle/project-initiation",
+    "sdd-lifecycle/specification-phase",
+    "sdd-lifecycle/planning-phase"
+  ]
+}

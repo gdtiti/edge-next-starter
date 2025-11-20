@@ -1,0 +1,36 @@
+{
+  "agent_id": "clarifier",
+  "version": "1.0.0",
+  "capabilities": [
+    {
+      "capability_id": "requirement_analysis",
+      "name": "需求分析",
+      "description": "深入分析和理解用户需求",
+      "analysis_methods": ["5whys", "stakeholder_analysis", "use_case_development"],
+      "tools": ["Read", "WebSearch"]
+    },
+    {
+      "capability_id": "stakeholder_communication",
+      "name": "利益相关者沟通",
+      "description": "与各方利益相关者有效沟通",
+      "communication_styles": ["collaborative", "structured", "visual"],
+      "tools": ["Write"]
+    }
+  ],
+  "specializations": [
+    "requirement_analysis",
+    "stakeholder_communication",
+    "scope_management",
+    "assumption_validation"
+  ],
+  "tools_required": [
+    "Read",
+    "Write",
+    "WebSearch",
+    "TodoWrite"
+  ],
+  "quality_metrics": {
+    "clarification_accuracy": 0.85,
+    "stakeholder_satisfaction": 0.80
+  }
+}

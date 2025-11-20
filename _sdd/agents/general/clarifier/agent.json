@@ -1,0 +1,167 @@
+{
+  "agent_id": "clarifier",
+  "name": "SDD Clarifier Agent",
+  "version": "1.0.0",
+  "type": "general-purpose",
+  "subtype": "clarifier",
+  "category": "general",
+  "description": "负责SDD需求澄清和问题理解的智能体，确保准确把握用户需求和项目要求",
+  "capabilities": [
+    "需求澄清",
+    "问题分析",
+    "用户意图理解",
+    "约束识别",
+    "假设验证",
+    "范围定义"
+  ],
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "user_input": {
+        "type": "string",
+        "description": "用户的原始输入或请求"
+      },
+      "context": {
+        "type": "string",
+        "description": "项目或上下文信息"
+      },
+      "clarification_objective": {
+        "type": "string",
+        "enum": ["requirements", "scope", "constraints", "acceptance_criteria", "technical_details"],
+        "description": "澄清目标"
+      },
+      "previous_clarifications": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "question": {"type": "string"},
+            "answer": {"type": "string"},
+            "timestamp": {"type": "string"}
+          }
+        }
+      }
+    },
+    "required": ["user_input"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "clarification_result": {
+        "type": "object",
+        "properties": {
+          "understanding_summary": {
+            "type": "string",
+            "description": "理解总结"
+          },
+          "clarification_questions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "question": {"type": "string"},
+                "priority": {"type": "string", "enum": ["high", "medium", "low"]},
+                "category": {"type": "string"},
+                "rationale": {"type": "string"}
+              }
+            }
+          },
+          "identified_constraints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "constraint": {"type": "string"},
+                "type": {"type": "string", "enum": ["technical", "business", "resource", "time"]},
+                "impact": {"type": "string"}
+              }
+            }
+          },
+          "assumptions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "assumption": {"type": "string"},
+                "confidence": {"type": "number"},
+                "validation_needed": {"type": "boolean"}
+              }
+            }
+          },
+          "scope_suggestion": {
+            "type": "object",
+            "properties": {
+              "in_scope": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "out_of_scope": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "clarification_needed": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            }
+          },
+          "next_steps": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+  "clarification_strategies": {
+    "question_types": [
+      "open_ended",
+      "specific",
+      "confirmatory",
+      "scenario_based",
+      "prioritization"
+    ],
+    "focus_areas": [
+      "functional_requirements",
+      "non_functional_requirements",
+      "user_context",
+      "business_objectives",
+      "technical_constraints",
+      "success_criteria"
+    ],
+    "validation_methods": [
+      "example_scenarios",
+      "use_cases",
+      "acceptance_tests",
+      "mockups_prototypes"
+    ]
+  },
+  "quality_requirements": {
+    "min_questions_per_session": 3,
+    "max_questions_per_session": 10,
+    "clarification_completion_threshold": 0.8
+  },
+  "communication_guidelines": {
+    "tone": "collaborative",
+    "language": "clear_concise",
+    "avoid_jargon": true,
+    "provide_examples": true,
+    "confirm_understanding": true
+  },
+  "tools_required": [
+    "Read",
+    "Write",
+    "WebSearch",
+    "TodoWrite"
+  ],
+  "specializations": [
+    "requirement_analysis",
+    "stakeholder_communication",
+    "scope_management",
+    "assumption_validation"
+  ],
+  "workflow_support": [
+    "sdd-lifecycle/project-initiation",
+    "sdd-lifecycle/specification-phase"
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "workflow_name": "architecture-review",
+  "version": "1.0.0",
+  "description": "架构审查工作流 - 评估和改进系统架构设计与质量",
+  "type": "governance",
+  "estimated_duration": "1-3_days",
+  "agents_sequence": [
+    "analyzer",
+    "init_architect",
+    "planner"
+  ],
+  "triggers": [
+    "major_feature_architecture_impact",
+    "technical_debt_threshold_reached",
+    "performance_degradation_detection",
+    "scalability_requirements_change",
+    "quarterly_architecture_assessment"
+  ],
+  "review_types": {
+    "comprehensive_review": {
+      "scope": "entire_system_architecture",
+      "frequency": "quarterly",
+      "participants": "all_technical_leads",
+      "deliverables": "architecture_health_report"
+    },
+    "feature_impact_review": {
+      "scope": "specific_feature_area",
+      "frequency": "as_needed",
+      "participants": "feature_team_and_architect",
+      "deliverables": "impact_assessment_report"
+    },
+    "performance_review": {
+      "scope": "performance_related_architecture",
+      "frequency": "monthly_or_issue_driven",
+      "participants": "performance_team_and_architect",
+      "deliverables": "performance_optimization_plan"
+    },
+    "security_review": {
+      "scope": "security_architecture_components",
+      "frequency": "bi_annually_or_incident_driven",
+      "participants": "security_team_and_architect",
+      "deliverables": "security_architecture_report"
+    }
+  },
+  "stages": {
+    "preparation_stage": {
+      "agent": "analyzer",
+      "duration": "0.5-1_day",
+      "objectives": [
+        "collect_architecture_data",
+        "prepare_analysis_tools",
+        "schedule_review_participants",
+        "define_review_scope"
+      ],
+      "inputs": [
+        "system_documentation",
+        "code_repository",
+        "monitoring_data",
+        "performance_metrics"
+      ],
+      "outputs": [
+        "architecture_data_package",
+        "analysis_plan",
+        "review_agenda",
+        "participant_preparation_materials"
+      ],
+      "data_collection": {
+        "code_analysis": {
+          "sources": ["git_repository", "code_quality_tools", "dependency_analysis"],
+          "metrics": ["code_complexity", "coupling_analysis", "design_patterns_usage", "technical_debt_indicators"]
+        },
+        "runtime_analysis": {
+          "sources": ["monitoring_systems", "performance_tools", "log_analysis"],
+          "metrics": ["response_times", "error_rates", "resource_utilization", "scaling_behavior"]
+        },
+        "documentation_analysis": {
+          "sources": ["architecture_docs", "api_documentation", "design_decisions"],
+          "metrics": ["documentation_completeness", "consistency_check", "maintenance_status"]
+        }
+      }
+    },
+    "analysis_stage": {
+      "agent": "analyzer",
+      "duration": "0.5-1_day",
+      "objectives": [
+        "analyze_architecture_health",
+        "identify_design_issues",
+        "assess scalability_and_performance",
+        "evaluate maintainability"
+      ],
+      "inputs": [
+        "architecture_data_package",
+        "quality_benchmarks",
+        "business_requirements",
+        "technical_constraints"
+      ],
+      "outputs": [
+        "architecture_analysis_report",
+        "issue_identification_list",
+        "improvement_recommendations",
+        "risk_assessment_document"
+      ],
+      "analysis_dimensions": {
+        "structural_quality": {
+          "modularity": "component_cohesion_and_coupling",
+          "layer_separation": "architecture_layer_adherence",
+          "design_patterns": "appropriate_pattern_usage",
+          "interfaces": "api_design_consistency"
+        },
+        "operational_quality": {
+          "performance": "response_time_and_throughput",
+          "scalability": "horizontal_and_vertical_scaling",
+          "reliability": "fault_tolerance_and_recovery",
+          "maintainability": "code_and_system_ease_of_change"
+        },
+        "strategic_quality": {
+          "business_alignment": "architecture_supporting_business_goals",
+          "technical_debt": "accumulated_technical_debt_assessment",
+          "future_readiness": "adaptability_to_future_requirements",
+          "innovation_potential": "architecture_enabling_innovation"
+        }
+      },
+      "assessment_criteria": {
+        "excellent": "90-100_points",
+        "good": "70-89_points",
+        "acceptable": "50-69_points",
+        "needs_improvement": "below_50_points"
+      }
+    },
+    "design_evaluation_stage": {
+      "agent": "init_architect",
+      "duration": "0.5-1_day",
+      "objectives": [
+        "evaluate_architecture_decisions",
+        "assess_design_principles_adherence",
+        "validate architectural_patterns",
+        "recommend improvements"
+      ],
+      "inputs": [
+        "architecture_analysis_report",
+        "current_architecture_documentation",
+        "design_principles_framework",
+        "industry_best_practices"
+      ],
+      "outputs": [
+        "design_evaluation_report",
+        "architectural_recommendations",
+        "improvement_roadmap",
+        "governance_guidelines"
+      ],
+      "evaluation_framework": {
+        "solen_principles": {
+          "single_responsibility": "component_focus_assessment",
+          "open_closed": "extensibility_without_modification",
+          "liskov_substitution": "interface_compliance",
+          "interface_segregation": "focused_interfaces",
+          "dependency_inversion": "abstraction_dependencies"
+        },
+        "architectural_patterns": {
+          "layered_architecture": "separation_and_boundaries",
+          "microservices": "service_boundaries_and_communication",
+          "event_driven": "event_flow_and_processing",
+          "cqrs": "command_query_separation"
+        },
+        "quality_attributes": {
+          "performance": "efficiency_and_response_time",
+          "security": "protection_and_access_control",
+          "reliability": "availability_and_fault_tolerance",
+          "usability": "ease_of_use_and_access"
+        }
+      }
+    },
+    "strategic_planning_stage": {
+      "agent": "planner",
+      "duration": "0.5_day",
+      "objectives": [
+        "create_improvement_roadmap",
+        "prioritize_architecture_initiatives",
+        "allocate_resources_and_timeline",
+        "define_success_metrics"
+      ],
+      "inputs": [
+        "design_evaluation_report",
+        "business_priorities",
+        "resource_constraints",
+        "budget_considerations"
+      ],
+      "outputs": [
+        "architecture_roadmap",
+        "implementation_plan",
+        "resource_allocation_matrix",
+        "success_measurement_framework"
+      ],
+      "planning_methodology": {
+        "prioritization_framework": {
+          "business_value": "impact_on_business_objectives",
+          "technical_necessity": "system_health_and_maintenance",
+          "implementation_effort": "complexity_and_resource_requirements",
+          "time_sensitivity": "urgency_and_dependencies"
+        },
+        "roadmap_structure": {
+          "immediate_actions": "0-3_months_critical_improvements",
+          "short_term_initiatives": "3-6_months_enhancements",
+          "medium_term_evolution": "6-12_months_strategic_changes",
+          "long_term_vision": "1+_years_fundamental_shifts"
+        }
+      }
+    }
+  },
+  "quality_gates": {
+    "data_integrity_gate": {
+      "criteria": [
+        "comprehensive_data_collection",
+        "accurate_metric_calculation",
+        "consistent_analysis_methodology",
+        "reproducible_results"
+      ],
+      "validation": "cross_tool_verification"
+    },
+    "analysis_rigor_gate": {
+      "criteria": [
+        "multiple_dimension_analysis",
+        "objective_evaluation_criteria",
+        "peer_review_validation",
+        "evidence_based_conclusions"
+      ],
+      "validation": "expert_consensus"
+    },
+    "recommendation_feasibility_gate": {
+      "criteria": [
+        "technical_feasibility_confirmed",
+        "resource_requirements_assessed",
+        "business_impact_evaluated",
+        "risk_mitigation_planned"
+      ],
+      "validation": "stakeholder_approval"
+    },
+    "implementation_readiness_gate": {
+      "criteria": [
+        "detailed_implementation_plan",
+        "resource_allocation_confirmed",
+        "success_metrics_defined",
+        "monitoring_framework_ready"
+      ],
+      "validation": "executive_signoff"
+    }
+  },
+  "reporting_templates": {
+    "executive_summary": {
+      "audience": "executive_leadership",
+      "content": [
+        "key_findings",
+        "business_impact",
+        "recommendations_summary",
+        "resource_requirements"
+      ],
+      "format": "1-2_page_brief"
+    },
+    "technical_analysis_report": {
+      "audience": "technical_leadership",
+      "content": [
+        "detailed_analysis_results",
+        "issue_identification",
+        "technical_recommendations",
+        "implementation_details"
+      ],
+      "format": "comprehensive_technical_document"
+    },
+    "implementation_roadmap": {
+      "audience": "development_teams",
+      "content": [
+        "phased_improvement_plan",
+        "specific_initiatives",
+        "timeline_and_milestones",
+        "success_criteria"
+      ],
+      "format": "action_plan_with_timelines"
+    }
+  },
+  "success_metrics": {
+    "architecture_health_metrics": {
+      "code_quality": "maintainability_index_complexity_metrics",
+      "design_adherence": "pattern_usage_and_consistency",
+      "technical_debt": "reduction_in_technical_debt_ratio",
+      "documentation": "documentation_completeness_and_accuracy"
+    },
+    "business_impact_metrics": {
+      "development_velocity": "feature_delivery_speed_improvement",
+      "system_reliability": "uptime_and_error_rate_improvement",
+      "performance": "response_time_and_throughput_improvement",
+      "scalability": "system_capacity_utilization_efficiency"
+    },
+    "continuous_improvement_metrics": {
+      "review_effectiveness": "issue_prevention_and_early_detection",
+      "implementation_success": "initiative_completion_and_impact",
+      "knowledge_transfer": "team_architecture_understanding",
+      "innovation_enablement": "new_feature_implementation_ease"
+    }
+  },
+  "automation_tools": {
+    "static_analysis": {
+      "architecture_analysis": "structure114_dependency_cruiser",
+      "design_pattern_detection": "custom_pattern_recognition",
+      "code_quality_metrics": "sonarqube_complexity_analysis",
+      "dependency_analysis": "dependency-graph_visualization"
+    },
+    "runtime_analysis": {
+      "performance_monitoring": "apm_tools_integration",
+      "architecture_compliance": "runtime_pattern_detection",
+      "scalability_testing": "automated_load_testing",
+      "fault_tolerance": "chaos_engineering_integration"
+    },
+    "visualization": {
+      "architecture_diagrams": "automated_diagram_generation",
+      "dependency_graphs": "interactive_dependency_visualization",
+      "trend_analysis": "metric_trend_visualization",
+      "comparison_reports": "before_after_comparison"
+    }
+  },
+  "governance_framework": {
+    "review_frequency": {
+      "comprehensive_review": "quarterly",
+      "feature_impact_review": "as_needed",
+      "performance_review": "monthly_or_issue_driven",
+      "security_review": "bi_annual_or_incident_driven"
+    },
+    "approval_levels": {
+      "routine_improvements": "tech_lead_approval",
+      "significant_changes": "architecture_committee",
+      "major_refactoring": "executive_approval",
+      "strategic_shifts": "board_level_decision"
+    },
+    "documentation_requirements": {
+      "decision_records": "adr_format_documentation",
+      "review_outcomes": "structured_report_format",
+      "implementation_tracking": "project_management_integration",
+      "lessons_learned": "knowledge_base_updates"
+    }
+  }
+}

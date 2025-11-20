@@ -1,0 +1,166 @@
+{
+  "agent_type": "general-purpose",
+  "sub_agent_type": "mcp-analyzer",
+  "name": "SDD MCP 工具分析智能体",
+  "description": "专门负责分析当前环境中的 MCP 工具，生成标准化的使用规范，并创建 SDD 阶段映射",
+  "version": "1.0.0",
+  "capabilities": [
+    "MCP 工具发现和识别",
+    "功能和能力深度分析",
+    "工具可靠性评估",
+    "SDD 阶段映射",
+    "使用规范制定",
+    "模板创建",
+    "最佳实践总结"
+  ],
+  "input_schema": {
+    "required": [],
+    "optional": [
+      {
+        "name": "category",
+        "type": "string",
+        "description": "分析的工具类别",
+        "allowed_values": ["all", "documentation", "testing", "analysis", "automation"],
+        "default": "all"
+      },
+      {
+        "name": "phase",
+        "type": "string",
+        "description": "针对特定 SDD 阶段的分析",
+        "allowed_values": ["all", "init", "specify", "plan", "tasks", "implement", "validate"],
+        "default": "all"
+      },
+      {
+        "name": "format",
+        "type": "string",
+        "description": "输出格式类型",
+        "allowed_values": ["summary", "detailed", "template"],
+        "default": "detailed"
+      },
+      {
+        "name": "tools",
+        "type": "array",
+        "description": "特定工具的深度分析",
+        "items": {
+          "type": "string"
+        }
+      }
+    ]
+  },
+  "output_schema": {
+    "required": [
+      "mcp_tools_overview",
+      "sdd_phase_mapping",
+      "usage_specifications",
+      "usage_templates"
+    ],
+    "optional": [
+      "best_practices",
+      "troubleshooting_guide",
+      "update_recommendations"
+    ]
+  },
+  "analysis_dimensions": {
+    "functionality": {
+      "weight": 0.4,
+      "criteria": ["completeness", "accuracy", "relevance"]
+    },
+    "usability": {
+      "weight": 0.3,
+      "criteria": ["ease_of_use", "learning_curve", "documentation"]
+    },
+    "reliability": {
+      "weight": 0.3,
+      "criteria": ["stability", "error_handling", "performance"]
+    }
+  },
+  "sdd_phase_mapping": {
+    "constitution": {
+      "primary_tools": ["documentation"],
+      "secondary_tools": ["analysis"],
+      "focus": "技术选型研究，规范制定"
+    },
+    "specify": {
+      "primary_tools": ["documentation", "automation"],
+      "secondary_tools": ["analysis"],
+      "focus": "功能可行性验证，用户体验设计"
+    },
+    "plan": {
+      "primary_tools": ["documentation", "analysis"],
+      "secondary_tools": ["testing"],
+      "focus": "技术方案验证，架构设计"
+    },
+    "tasks": {
+      "primary_tools": ["analysis"],
+      "secondary_tools": ["automation"],
+      "focus": "代码复杂度分析，任务规划"
+    },
+    "implement": {
+      "primary_tools": ["analysis", "testing", "automation"],
+      "secondary_tools": ["documentation"],
+      "focus": "代码质量检查，功能实现"
+    },
+    "validate": {
+      "primary_tools": ["testing", "analysis"],
+      "secondary_tools": ["documentation"],
+      "focus": "功能测试验证，质量检查"
+    }
+  },
+  "tool_categories": {
+    "documentation": {
+      "examples": ["context7", "deepwiki"],
+      "usage_phases": ["constitution", "specify", "plan"],
+      "key_capabilities": ["技术文档查询", "最佳实践学习", "API 参考"]
+    },
+    "analysis": {
+      "examples": ["ide"],
+      "usage_phases": ["plan", "tasks", "implement", "validate"],
+      "key_capabilities": ["代码诊断", "质量检查", "静态分析"]
+    },
+    "testing": {
+      "examples": ["playwright"],
+      "usage_phases": ["implement", "validate"],
+      "key_capabilities": ["功能测试", "用户体验测试", "性能测试"]
+    },
+    "automation": {
+      "examples": ["task", "file_operations"],
+      "usage_phases": ["all"],
+      "key_capabilities": ["流程自动化", "重复任务处理"]
+    }
+  },
+  "output_formats": {
+    "summary": {
+      "description": "简洁的分析摘要",
+      "length": "1-2 pages",
+      "focus": "关键发现和建议"
+    },
+    "detailed": {
+      "description": "完整的分析报告",
+      "length": "5-10 pages",
+      "focus": "详细的分析和使用指导"
+    },
+    "template": {
+      "description": "可用的使用模板",
+      "length": "3-5 pages",
+      "focus": "实用的调用模板和示例"
+    }
+  },
+  "quality_requirements": {
+    "analysis_depth": 0.9,
+    "recommendation_accuracy": 0.95,
+    "template_practicality": 0.85,
+    "documentation_completeness": 0.95
+  },
+  "specialized_tools": [
+    "mcp__context7",
+    "mcp__mcp-deepwiki",
+    "mcp__Playwright",
+    "mcp__ide"
+  ],
+  "knowledge_domains": [
+    "mcp_protocol",
+    "tool_integration_patterns",
+    "sdd_methodology",
+    "development_workflow_optimization"
+  ]
+}

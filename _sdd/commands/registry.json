@@ -1,0 +1,130 @@
+{
+  "version": "2.0.0",
+  "last_updated": "2025-11-19T00:00:00Z",
+  "registry_type": "sdd_business_commands",
+
+  "commands": {
+    "init-sdd": {
+      "category": "sdd-lifecycle",
+      "file": "sdd-lifecycle/init-sdd.json",
+      "description": "初始化SDD框架，建立项目宪法和开发规范",
+      "tools_required": ["Read", "Write", "Edit"],
+      "timeout": 30000,
+      "workflow_phase": "project_initiation",
+      "sdd_command": true
+    },
+
+    "create-specification": {
+      "category": "sdd-lifecycle",
+      "file": "sdd-lifecycle/create-specification.json",
+      "description": "基于用户需求创建结构化的功能规范文档",
+      "tools_required": ["Read", "Write", "Edit", "WebSearch"],
+      "timeout": 25000,
+      "workflow_phase": "specification",
+      "sdd_command": true
+    },
+
+    "quality-analysis": {
+      "category": "sdd-lifecycle",
+      "file": "sdd-lifecycle/quality-analysis.json",
+      "description": "执行全面的代码质量分析和架构评估",
+      "tools_required": ["Read", "Grep", "Bash", "Write"],
+      "timeout": 45000,
+      "workflow_phase": "quality_assurance",
+      "sdd_command": true
+    },
+
+    "compliance-check": {
+      "category": "constitution-management",
+      "file": "constitution-management/compliance-check.json",
+      "description": "检查开发活动是否符合项目宪法要求",
+      "tools_required": ["Read", "Grep", "Write"],
+      "timeout": 30000,
+      "workflow_phase": "constitution_compliance",
+      "sdd_command": true
+    },
+
+    "api-build": {
+      "category": "adminnet-specific",
+      "file": "adminnet-specific/api-build.json",
+      "description": "执行Admin.NET框架的API代码生成和构建流程",
+      "tools_required": ["Read", "Bash", "Write"],
+      "timeout": 60000,
+      "workflow_phase": "api_development",
+      "adminnet_specific": true
+    }
+  },
+
+  "command_categories": {
+    "sdd-lifecycle": {
+      "description": "SDD生命周期命令，涵盖规范驱动的开发全流程",
+      "commands": ["init-sdd", "create-specification", "quality-analysis"],
+      "common_tools": ["Read", "Write", "Edit", "Grep"],
+      "average_timeout": 33333,
+      "workflow_phases": ["project_initiation", "specification", "quality_assurance"]
+    },
+
+    "constitution-management": {
+      "description": "宪法管理命令，确保开发活动符合项目宪法要求",
+      "commands": ["compliance-check"],
+      "common_tools": ["Read", "Grep", "Write"],
+      "average_timeout": 30000,
+      "workflow_phases": ["constitution_compliance"]
+    },
+
+    "adminnet-specific": {
+      "description": "Admin.NET框架专用命令，针对特定技术栈的优化",
+      "commands": ["api-build"],
+      "common_tools": ["Read", "Bash", "Write"],
+      "average_timeout": 60000,
+      "workflow_phases": ["api_development"]
+    }
+  },
+
+  "command_metrics": {
+    "total_commands": 5,
+    "sdd_lifecycle_commands": 3,
+    "constitution_commands": 1,
+    "adminnet_specific_commands": 1,
+    "average_timeout": 40000,
+    "most_used_tools": ["Read", "Write", "Grep"]
+  },
+
+  "workflow_integration": {
+    "supported_phases": [
+      "project_initiation",
+      "specification",
+      "quality_assurance",
+      "constitution_compliance",
+      "api_development"
+    ],
+    "command_flow": {
+      "project_initiation": ["init-sdd"],
+      "specification": ["create-specification"],
+      "implementation": ["api-build"],
+      "quality_assurance": ["quality-analysis"],
+      "constitution_compliance": ["compliance-check"]
+    }
+  },
+
+  "sdd_methodology_alignment": {
+    "constitution_driven": true,
+    "specification_first": true,
+    "quality_built_in": true,
+    "continuous_improvement": true
+  },
+
+  "integration_info": {
+    "compatible_versions": ["2.0.0"],
+    "required_format": "json",
+    "sdd_framework": "specification_driven_development",
+    "target_project": "Admin.NET Pro"
+  },
+
+  "metadata": {
+    "created_at": "2025-11-19T00:00:00Z",
+    "updated_at": "2025-11-19T00:00:00Z",
+    "author": "SDD System",
+    "description": "SDD业务命令注册表，专注于规范驱动的开发流程和宪法管理"
+  }
+}

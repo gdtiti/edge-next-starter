@@ -1,0 +1,53 @@
+{
+  "agent_id": "learner",
+  "version": "1.0.0",
+  "capabilities": [
+    {
+      "capability_id": "experience_analysis",
+      "name": "经验分析",
+      "description": "从项目实践中分析成功和失败的经验",
+      "analysis_methods": ["root_cause_analysis", "success_factor_analysis", "pattern_recognition"],
+      "experience_types": ["success", "failure", "challenge", "innovation"]
+    },
+    {
+      "capability_id": "pattern_recognition",
+      "name": "模式识别",
+      "description": "识别开发过程中的可重用模式和最佳实践",
+      "pattern_types": ["architectural_patterns", "process_patterns", "anti_patterns"],
+      "recognition_techniques": ["statistical_analysis", "machine_learning", "expert_system"]
+    },
+    {
+      "capability_id": "knowledge_management",
+      "name": "知识管理",
+      "description": "组织、分类和维护项目知识库",
+      "knowledge_areas": ["best_practices", "lessons_learned", "prevention_strategies", "technical_solutions"],
+      "organization_methods": ["taxonomy", "tagging", "linking", "versioning"]
+    }
+  ],
+  "specializations": [
+    "experience_analysis",
+    "pattern_recognition",
+    "knowledge_management",
+    "best_practice_identification",
+    "continuous_improvement"
+  ],
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "TodoWrite"
+  ],
+  "quality_metrics": {
+    "learning_effectiveness": 0.85,
+    "knowledge_retention": 0.80,
+    "practice_adoption": 0.75,
+    "improvement_impact": 0.70
+  },
+  "learning_cycle": {
+    "experience_capture": "continuous",
+    "analysis_frequency": "on_phase_completion",
+    "knowledge_update": "weekly",
+    "practice_sharing": "biweekly"
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "agent_id": "checklist-generator",
+  "name": "SDD检查清单生成专家",
+  "description": "负责SDD检查清单生成的智能体，根据不同阶段和需求生成质量检查清单",
+  "version": "1.0.0",
+  "type": "general-purpose",
+  "subtype": "checklist-generator",
+  "category": "general",
+  "capabilities": [
+    "检查清单生成",
+    "质量标准定义",
+    "验证规则制定",
+    "进度跟踪设计",
+    "合规性检查项",
+    "最佳实践整合"
+  ],
+
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "checklist_type": {
+        "type": "string",
+        "enum": ["requirements", "design", "implementation", "testing", "deployment", "review", "constitution", "phase_gate"],
+        "description": "检查清单类型",
+        "required": true
+      },
+      "project_context": {
+        "type": "object",
+        "description": "项目上下文信息",
+        "properties": {
+          "project_type": {"type": "string"},
+          "technology_stack": {"type": "array", "items": {"type": "string"}},
+          "team_size": {"type": "integer"},
+          "quality_level": {"type": "string", "enum": ["basic", "standard", "high", "enterprise"]},
+          "compliance_requirements": {"type": "array", "items": {"type": "string"}}
+        }
+      },
+      "scope": {
+        "type": "object",
+        "description": "检查清单范围",
+        "properties": {
+          "modules": {"type": "array", "items": {"type": "string"}},
+          "phases": {"type": "array", "items": {"type": "string"}},
+          "artifacts": {"type": "array", "items": {"type": "string"}},
+          "risk_areas": {"type": "array", "items": {"type": "string"}}
+        }
+      },
+      "quality_standards": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "适用的质量标准和框架"
+      },
+      "format": {
+        "type": "string",
+        "enum": ["markdown", "json", "interactive", "report"],
+        "description": "输出格式",
+        "default": "markdown"
+      },
+      "customization": {
+        "type": "object",
+        "description": "自定义检查清单项",
+        "properties": {
+          "additional_items": {"type": "array", "items": {"type": "object"}},
+          "excluded_items": {"type": "array", "items": {"type": "string"}},
+          "priority_override": {"type": "object"}
+        }
+      }
+    },
+    "required": ["checklist_type"]
+  },
+
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "checklist": {
+        "type": "object",
+        "properties": {
+          "checklist_id": {"type": "string"},
+          "title": {"type": "string"},
+          "description": {"type": "string"},
+          "version": {"type": "string"},
+          "sections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "section_id": {"type": "string"},
+                "title": {"type": "string"},
+                "description": {"type": "string"},
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "item_id": {"type": "string"},
+                      "description": {"type": "string"},
+                      "category": {"type": "string"},
+                      "priority": {"type": "string", "enum": ["critical", "high", "medium", "low"]},
+                      "check_type": {"type": "string", "enum": ["binary", "scale", "text", "file_check", "code_review"]},
+                      "acceptance_criteria": {"type": "string"},
+                      "verification_method": {"type": "string"},
+                      "related_artifacts": {"type": "array", "items": {"type": "string"}},
+                      "dependencies": {"type": "array", "items": {"type": "string"}},
+                      "automated": {"type": "boolean"},
+                      "weight": {"type": "number"}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "total_items": {"type": "integer"},
+              "critical_items": {"type": "integer"},
+              "automatable_items": {"type": "integer"},
+              "estimated_time": {"type": "string"},
+              "required_tools": {"type": "array", "items": {"type": "string"}},
+              "completion_criteria": {"type": "string"}
+            }
+          },
+          "execution_plan": {
+            "type": "object",
+            "properties": {
+              "phases": {"type": "array", "items": {"type": "string"}},
+              "timeline": {"type": "string"},
+              "responsibilities": {"type": "array", "items": {"type": "object"}},
+              "tools_needed": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        }
+      },
+      "usage_guidelines": {
+        "type": "object",
+        "properties": {
+          "preparation_steps": {"type": "array", "items": {"type": "string"}},
+          "execution_instructions": {"type": "array", "items": {"type": "string"}},
+          "completion_criteria": {"type": "string"},
+          "next_steps": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  },
+
+  "sdd_workflow_integration": {
+    "primary_phases": ["quality_assurance", "constitution_compliance", "phase_completion"],
+    "checklist_types": [
+      "requirements_checklist",
+      "design_checklist",
+      "implementation_checklist",
+      "testing_checklist",
+      "constitution_checklist",
+      "phase_gate_checklist"
+    ],
+    "collaboration_agents": ["analyzer", "constitution-guardian", "implementer"]
+  },
+
+  "checklist_categories": {
+    "requirements": {
+      "description": "需求质量检查清单",
+      "focus_areas": ["completeness", "clarity", "testability", "traceability"],
+      "standard_frameworks": ["IEEE_830", "ISO_29148"]
+    },
+    "design": {
+      "description": "设计质量检查清单",
+      "focus_areas": ["architecture", "patterns", "standards", "maintainability"],
+      "standard_frameworks": ["SOLID_principles", "Clean_Architecture"]
+    },
+    "implementation": {
+      "description": "实现质量检查清单",
+      "focus_areas": ["code_quality", "standards", "performance", "security"],
+      "standard_frameworks": ["Clean_Code", "Secure_Coding"]
+    },
+    "testing": {
+      "description": "测试质量检查清单",
+      "focus_areas": ["coverage", "automation", "performance", "security"],
+      "standard_frameworks": ["Test_Driven_Development", "Shift_Left_Testing"]
+    },
+    "constitution": {
+      "description": "宪法合规性检查清单",
+      "focus_areas": ["compliance", "standards", "quality_gates", "team_practices"],
+      "standard_frameworks": ["Project_Constitution"]
+    }
+  },
+
+  "automation_support": {
+    "automatable_checks": [
+      "code_formatting",
+      "naming_conventions",
+      "documentation_presence",
+      "test_coverage",
+      "security_scanning"
+    ],
+    "integration_tools": [
+      "static_analysis",
+      "unit_testing",
+      "code_coverage",
+      "documentation_generation"
+    ]
+  },
+
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "TodoWrite"
+  ],
+
+  "specializations": [
+    "quality_standards_definition",
+    "checklist_design",
+    "process_improvement",
+    "compliance_verification",
+    "template_generation"
+  ],
+
+  "workflow_support": [
+    "quality_assurance",
+    "process_improvement",
+    "compliance_management"
+  ],
+
+  "quality_metrics": {
+    "checklist_effectiveness": 0.85,
+    "quality_defect_detection": 0.80,
+    "process_improvement_impact": 0.75,
+    "automation_coverage": 0.70
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "agent_id": "analyzer",
+  "version": "1.0.0",
+  "capabilities": [
+    {
+      "capability_id": "code_analysis",
+      "name": "代码分析",
+      "description": "分析代码结构、质量和模式",
+      "supported_types": ["static", "dynamic", "quality", "complexity"],
+      "tools": ["Read", "Grep", "Glob", "Bash"]
+    },
+    {
+      "capability_id": "architecture_assessment",
+      "name": "架构评估",
+      "description": "评估架构模式和设计质量",
+      "supported_frameworks": ["SOLID", "layered_architecture", "microservices", "domain_driven_design"],
+      "tools": ["Read", "Grep", "Glob"]
+    },
+    {
+      "capability_id": "quality_analysis",
+      "name": "质量分析",
+      "description": "评估代码质量指标",
+      "metrics": ["complexity", "maintainability", "reliability", "testability"],
+      "standards": ["SOLID", "DRY", "KISS", "YAGNI"]
+    },
+    {
+      "capability_id": "performance_analysis",
+      "name": "性能分析",
+      "description": "分析系统性能指标",
+      "metrics": ["response_time", "throughput", "scalability", "resource_efficiency"],
+      "tools": ["Bash", "Read"]
+    },
+    {
+      "capability_id": "security_analysis",
+      "name": "安全性分析",
+      "description": "识别安全漏洞和风险",
+      "frameworks": ["OWASP_TOP_10", "security_by_design"],
+      "tools": ["Grep", "Bash", "WebSearch"]
+    },
+    {
+      "capability_id": "dependency_analysis",
+      "name": "依赖关系分析",
+      "description": "分析项目依赖和关系",
+      "tools": ["Read", "Grep", "Bash"]
+    },
+    {
+      "capability_id": "compliance_check",
+      "name": "合规性检查",
+      "description": "验证合规标准",
+      "frameworks": ["GDPR", "SOC2", "ISO27001"],
+      "tools": ["Read", "Grep", "Bash"]
+    }
+  ],
+  "specializations": [
+    {
+      "specialization_id": "static_code_analysis",
+      "name": "静态代码分析",
+      "description": "不执行代码的静态分析",
+      "focus_areas": ["code_structure", "naming_conventions", "design_patterns", "code_smells"],
+      "expertise_level": "advanced"
+    },
+    {
+      "specialization_id": "architecture_review",
+      "name": "架构审查",
+      "description": "评估架构设计和模式",
+      "focus_areas": ["layering", "separation_of_concerns", "scalability", "maintainability"],
+      "expertise_level": "expert"
+    },
+    {
+      "specialization_id": "quality_metrics",
+      "name": "质量指标评估",
+      "description": "计算和分析质量指标",
+      "focus_areas": ["cyclomatic_complexity", "coupling", "cohesion", "maintainability_index"],
+      "expertise_level": "advanced"
+    }
+  ],
+  "tools_required": [
+    {
+      "tool": "Read",
+      "purpose": "读取源代码文件",
+      "essential": true
+    },
+    {
+      "tool": "Grep",
+      "purpose": "搜索代码模式和内容",
+      "essential": true
+    },
+    {
+      "tool": "Glob",
+      "purpose": "查找匹配的文件",
+      "essential": true
+    },
+    {
+      "tool": "Bash",
+      "purpose": "执行命令行工具",
+      "essential": true
+    },
+    {
+      "tool": "Write",
+      "purpose": "生成分析报告",
+      "essential": true
+    },
+    {
+      "tool": "Edit",
+      "purpose": "修改文件内容",
+      "essential": false
+    },
+    {
+      "tool": "WebSearch",
+      "purpose": "获取外部信息",
+      "essential": false
+    },
+    {
+      "tool": "TodoWrite",
+      "purpose": "任务跟踪",
+      "essential": false
+    }
+  ],
+  "quality_metrics": {
+    "accuracy": {
+      "target": 0.95,
+      "current": 0.95,
+      "improvement_suggestions": []
+    },
+    "completeness": {
+      "target": 0.90,
+      "current": 0.90,
+      "improvement_suggestions": []
+    },
+    "response_time": {
+      "target": 30000,
+      "unit": "milliseconds",
+      "current": 25000
+    },
+    "detail_level": {
+      "target": "comprehensive",
+      "current": "comprehensive",
+      "assessment": "excellent"
+    }
+  },
+  "created_at": "2025-11-19T00:00:00Z",
+  "updated_at": "2025-11-19T00:00:00Z",
+  "author": "SDD System",
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2025-11-19",
+      "changes": "Initial version with comprehensive analysis capabilities"
+    }
+  ]
+}

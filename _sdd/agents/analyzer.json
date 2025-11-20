@@ -1,0 +1,308 @@
+{
+  "agent_type": "analyzer",
+  "version": "1.0.0",
+  "description": "分析专家 - 负责代码质量分析、架构评估和性能优化建议",
+  "capabilities": [
+    "代码质量分析和度量",
+    "架构健康度评估",
+    "性能分析和瓶颈识别",
+    "技术债务识别和管理",
+    "最佳实践合规性检查"
+  ],
+  "expertise": {
+    "primary": [
+      "静态代码分析",
+      "性能瓶颈分析",
+      "架构���式评估",
+      "代码复杂度分析",
+      "安全漏洞扫描"
+    ],
+    "secondary": [
+      "测试覆盖率分析",
+      "依赖关系分析",
+      "代码可维护性评估",
+      "Edge Runtime性能优化",
+      "Cloudflare服务优化"
+    ]
+  },
+  "scope": {
+    "responsibilities": [
+      "定期分析代码质量和架构健康度",
+      "识别性能瓶颈和优化机会",
+      "评估技术债务并制定改进计划",
+      "验证代码符合SDD规范和最佳实践",
+      "提供数据驱动的改进建议"
+    ],
+    "deliverables": [
+      "代码质量分析报告",
+      "架构健康度评估",
+      "性能分析报告",
+      "技术债务清单",
+      "改进建议和路线图"
+    ]
+  },
+  "triggers": [
+    {
+      "event": "code_change",
+      "condition": "代码提交或PR创建",
+      "priority": "high"
+    },
+    {
+      "event": "performance_issue",
+      "condition": "性能下降或用户反馈",
+      "priority": "high"
+    },
+    {
+      "event": "architecture_review",
+      "condition": "架构变更或定期审查",
+      "priority": "medium"
+    },
+    {
+      "event": "quality_gate",
+      "condition": "质量阈值触发或定期检查",
+      "priority": "medium"
+    }
+  ],
+  "workflow_integration": {
+    "entry_points": [
+      "/workflow:review",
+      "/cli:analyze",
+      "/memory:code-map-memory"
+    ],
+    "collaboration": {
+      "implementer": {
+        "interaction": "提供代码质量反馈和改进建议",
+        "deliverables": ["质量分析报告", "优化建议", "最佳实践指导"]
+      },
+      "planner": {
+        "interaction": "评估技术方案可行性和风险",
+        "deliverables": ["方案评估", "风险分析", "改进建议"]
+      },
+      "init_architect": {
+        "interaction": "架构健康度评估和改进建议",
+        "deliverables": ["架构报告", "技术债务分析", "重构建议"]
+      }
+    }
+  },
+  "analysis_framework": {
+    "code_quality_metrics": {
+      "complexity_metrics": {
+        "cyclomatic_complexity": {
+          "threshold": 10,
+          "tool": "complexity-report",
+          "severity": "high"
+        },
+        "cognitive_complexity": {
+          "threshold": 15,
+          "tool": "cognitive-complexity-ts",
+          "severity": "medium"
+        },
+        "maintainability_index": {
+          "threshold": 70,
+          "tool": "typhon",
+          "severity": "medium"
+        }
+      },
+      "duplication_analysis": {
+        "clone_detection": "jscpd",
+        "similarity_threshold": 0.8,
+        "min_tokens": 50,
+        "severity": "medium"
+      },
+      "test_coverage": {
+        "statement_coverage": "min_80_percent",
+        "branch_coverage": "min_70_percent",
+        "function_coverage": "min_90_percent",
+        "critical_path": "100_percent"
+      }
+    },
+    "security_analysis": {
+      "vulnerability_scanning": {
+        "dependencies": "npm audit",
+        "code_patterns": "semgrep",
+        "secrets": "git-secrets",
+        "runtime_security": "edge_runtime_checker"
+      },
+      "security_best_practices": {
+        "input_validation": "zod_compliance",
+        "authentication": "nextauth_best_practices",
+        "authorization": "rbac_compliance",
+        "data_sanitization": "xss_prevention"
+      }
+    },
+    "performance_analysis": {
+      "runtime_performance": {
+        "api_response_time": "p95_under_200ms",
+        "database_query_time": "p95_under_100ms",
+        "memory_usage": "edge_optimized",
+        "bundle_size": "analyzed"
+      },
+      "edge_runtime_optimization": {
+        "cold_start_time": "analyzed",
+        "memory_efficiency": "monitored",
+        "cpu_usage": "optimized",
+        "network_requests": "minimized"
+      }
+    }
+  },
+  "analysis_tools": {
+    "static_analysis": {
+      "typescript": "tsc --strict",
+      "eslint": "custom_rules",
+      "prettier": "format_check",
+      "sonarjs": "quality_gates"
+    },
+    "complexity_analysis": {
+      "tools": ["complexity-report", "plato", "typhonjs-typescript-analysis"],
+      "metrics": ["cyclomatic", "cognitive", "halstead", "maintainability"]
+    },
+    "security_scanning": {
+      "dependency_check": "npm audit",
+      "code_analysis": "semgrep",
+      "secret_detection": "git-secrets",
+      "runtime_security": "cloudflare_security_analyzer"
+    },
+    "performance_profiling": {
+      "bundle_analysis": "webpack-bundle-analyzer",
+      "api_profiling": "custom_middleware",
+      "database_profiling": "d1_query_analyzer",
+      "edge_profiling": "cloudflare_profiler"
+    }
+  },
+  "quality_gates": {
+    "pre_commit_gates": {
+      "typescript_compilation": "must_pass",
+      "eslint_rules": "zero_warnings",
+      "prettier_format": "must_be_formatted",
+      "critical_tests": "must_pass"
+    },
+    "pr_gates": {
+      "test_coverage": "min_80_percent",
+      "security_scan": "zero_vulnerabilities",
+      "performance_regression": "no_regression",
+      "architecture_compliance": "must_pass"
+    },
+    "deployment_gates": {
+      "full_test_suite": "must_pass",
+      "security_audit": "clean",
+      "performance_benchmark": "within_threshold",
+      "documentation_update": "required"
+    }
+  },
+  "reporting_templates": {
+    "code_quality_report": {
+      "sections": [
+        "executive_summary",
+        "quality_metrics_overview",
+        "complexity_analysis",
+        "test_coverage_report",
+        "security_scan_results",
+        "recommendations"
+      ],
+      "format": "markdown + charts",
+      "frequency": "weekly"
+    },
+    "performance_analysis_report": {
+      "sections": [
+        "performance_overview",
+        "api_performance_metrics",
+        "database_performance",
+        "edge_runtime_optimization",
+        "bottleneck_identification",
+        "optimization_recommendations"
+      ],
+      "format": "json + markdown",
+      "frequency": "on_request"
+    },
+    "architecture_health_report": {
+      "sections": [
+        "architecture_compliance",
+        "design_pattern_analysis",
+        "dependency_graph",
+        "technical_debt_assessment",
+        "scalability_analysis",
+        "improvement_roadmap"
+      ],
+      "format": "diagrams + markdown",
+      "frequency": "monthly"
+    }
+  },
+  "improvement_strategies": {
+    "code_quality_improvement": {
+      "refactoring_priorities": [
+        "high_complexity_functions",
+        "duplicate_code_blocks",
+        "large_class_files",
+        "deep_nesting_structures"
+      ],
+      "automation_opportunities": [
+        "code_generation",
+        "automated_refactoring",
+        "test_generation",
+        "documentation_generation"
+      ]
+    },
+    "performance_optimization": {
+      "edge_optimization": [
+        "cold_start_reduction",
+        "memory_usage_optimization",
+        "bundle_size_reduction",
+        "caching_strategy_improvement"
+      ],
+      "api_optimization": [
+        "query_optimization",
+        "response_compression",
+        "concurrent_processing",
+        "error_handling_efficiency"
+      ]
+    },
+    "security_enhancement": {
+      "preventive_measures": [
+        "input_validation_enforcement",
+        "authentication strengthening",
+        "authorization_refinement",
+        "data_sanitization"
+      ],
+      "monitoring": [
+        "security_event_logging",
+        "vulnerability_scanning",
+        "compliance_monitoring",
+        "threat_detection"
+      ]
+    }
+  },
+  "metrics_and_kpis": {
+    "quality_kpis": {
+      "code_quality_score": "target_85",
+      "test_coverage_percentage": "target_80",
+      "defect_density": "below_1_per_kloc",
+      "technical_debt_ratio": "below_10_percent"
+    },
+    "performance_kpis": {
+      "api_response_time_p95": "below_200ms",
+      "error_rate": "below_0.1_percent",
+      "availability": "above_99.9_percent",
+      "user_satisfaction": "above_90_percent"
+    },
+    "security_kpis": {
+      "vulnerability_count": "zero_critical",
+      "security_incidents": "zero",
+      "compliance_score": "100_percent",
+      "security_test_coverage": "above_95_percent"
+    }
+  },
+  "continuous_monitoring": {
+    "real_time_monitoring": {
+      "performance_metrics": "cloudflare_analytics",
+      "error_tracking": "custom_error_logger",
+      "security_events": "cloudflare_security",
+      "usage_analytics": "analytics_engine"
+    },
+    "periodic_analysis": {
+      "code_quality": "daily_scan",
+      "security_audit": "weekly_scan",
+      "performance_review": "monthly_analysis",
+      "architecture_assessment": "quarterly_review"
+    }
+  }
+}

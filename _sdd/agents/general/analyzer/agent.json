@@ -1,0 +1,172 @@
+{
+  "agent_id": "analyzer",
+  "name": "SDD Analyzer Agent",
+  "version": "1.0.0",
+  "description": "负责SDD分析任务的智能体，提供深入的代码、架构和项目分析能力",
+  "type": "general-purpose",
+  "subtype": "analyzer",
+  "category": "general",
+
+  "capabilities": [
+    "代码分析",
+    "架构评估",
+    "质量分析",
+    "性能分析",
+    "安全性分析",
+    "依赖关系分析",
+    "合规性检查"
+  ],
+
+  "specializations": [
+    "静态代码分析",
+    "架构模式识别",
+    "质量指标评估"
+  ],
+
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "analysis_type": {
+        "type": "string",
+        "enum": ["code", "architecture", "quality", "performance", "security", "dependencies", "compliance"],
+        "description": "分析类型"
+      },
+      "target": {
+        "type": "string",
+        "description": "分析目标（文件路径、模块名或系统名称）"
+      },
+      "scope": {
+        "type": "string",
+        "enum": ["file", "module", "package", "system", "full_project"],
+        "description": "分析范围"
+      },
+      "criteria": {
+        "type": "object",
+        "properties": {
+          "quality_standards": {"type": "string"},
+          "performance_benchmarks": {"type": "object"},
+          "security_requirements": {"type": "array", "items": {"type": "string"}},
+          "compliance_frameworks": {"type": "array", "items": {"type": "string"}}
+        }
+      },
+      "baseline": {
+        "type": "string",
+        "description": "基线版本或标准"
+      }
+    },
+    "required": ["analysis_type", "target"]
+  },
+
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "analysis_result": {
+        "type": "object",
+        "properties": {
+          "executive_summary": {
+            "type": "string",
+            "description": "分析总结"
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "category": {"type": "string"},
+                "severity": {"type": "string", "enum": ["critical", "high", "medium", "low", "info"]},
+                "description": {"type": "string"},
+                "location": {"type": "string"},
+                "evidence": {"type": "string"},
+                "impact": {"type": "string"},
+                "recommendation": {"type": "string"}
+              }
+            }
+          },
+          "metrics": {
+            "type": "object",
+            "properties": {
+              "quality_score": {"type": "number"},
+              "complexity_metrics": {"type": "object"},
+              "performance_metrics": {"type": "object"},
+              "security_score": {"type": "number"},
+              "compliance_score": {"type": "number"}
+            }
+          },
+          "detailed_analysis": {
+            "type": "object",
+            "properties": {
+              "strengths": {"type": "array", "items": {"type": "string"}},
+              "weaknesses": {"type": "array", "items": {"type": "string"}},
+              "opportunities": {"type": "array", "items": {"type": "string"}},
+              "threats": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "priority": {"type": "string", "enum": ["immediate", "short_term", "medium_term", "long_term"]},
+                "action": {"type": "string"},
+                "expected_outcome": {"type": "string"},
+                "effort_estimate": {"type": "string"},
+                "resources_needed": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          },
+          "next_steps": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+
+  "analysis_frameworks": {
+    "code_quality": ["SOLID", "DRY", "KISS", "YAGNI"],
+    "architecture": ["layered_architecture", "microservices", "event_driven", "domain_driven_design"],
+    "security": ["OWASP_TOP_10", "security_by_design", "defense_in_depth"],
+    "performance": ["response_time", "throughput", "scalability", "resource_efficiency"],
+    "compliance": ["GDPR", "SOC2", "ISO27001", "industry_specific"]
+  },
+
+  "analysis_tools": {
+    "static_analysis": ["eslint", "sonarqube", "codeclimate"],
+    "dependency_analysis": ["npm_audit", "snyk", "dependency_check"],
+    "performance_analysis": ["lighthouse", "webpagetest", "profiling_tools"],
+    "security_analysis": ["penetration_testing", "vulnerability_scanning"]
+  },
+
+  "quality_thresholds": {
+    "min_quality_score": 70,
+    "max_complexity": 10,
+    "min_test_coverage": 80,
+    "max_security_vulnerabilities": 0,
+    "min_compliance_score": 90
+  },
+
+  "reporting_format": {
+    "structure": "executive_summary_detailed_findings_recommendations",
+    "include_visualizations": true,
+    "severity_classification": true,
+    "actionable_recommendations": true
+  },
+
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "Bash",
+    "Grep",
+    "Glob",
+    "WebSearch",
+    "TodoWrite"
+  ],
+
+  "performance_metrics": {
+    "min_analysis_accuracy": 0.95,
+    "max_response_time": 30000,
+    "min_detail_level": "comprehensive"
+  }
+}

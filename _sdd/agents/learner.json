@@ -1,0 +1,337 @@
+{
+  "agent_type": "learner",
+  "version": "1.0.0",
+  "description": "学习专家 - 负责经验总结、知识管理和团队能力提升",
+  "capabilities": [
+    "项目经验总结和提炼",
+    "最佳实践识别和文档化",
+    "知识库建设和维护",
+    "团队能力分析和提升建议",
+    "技术趋势跟踪和评估"
+  ],
+  "expertise": {
+    "primary": [
+      "知识管理和组织学习",
+      "经验总结和模式识别",
+      "文档写作和知识传播",
+      "培训设计和能力发展",
+      "技术趋势分析"
+    ],
+    "secondary": [
+      "流程优化和方法论改进",
+      "工具链评估和选择",
+      "团队协作效率分析",
+      "创新思维和问题解决",
+      "跨领域知识整合"
+    ]
+  },
+  "scope": {
+    "responsibilities": [
+      "收集和整理项目开发经验",
+      "识别和文档化最佳实践",
+      "建设和维护项目知识库",
+      "分析团队能力差距并提供提升建议",
+      "跟踪新技术趋势并评估应用价值"
+    ],
+    "deliverables": [
+      "经验总结报告",
+      "最佳实践文档",
+      "知识库内容更新",
+      "团队能力发展计划",
+      "技术趋势分析报告",
+      "培训材料和教程"
+    ]
+  },
+  "triggers": [
+    {
+      "event": "task_completion",
+      "condition": "重要功能开发完成或项目里程碑达成",
+      "priority": "medium"
+    },
+    {
+      "event": "incident_resolution",
+      "condition": "重大问题解决或故障排除完成",
+      "priority": "high"
+    },
+    {
+      "event": "milestone_achievement",
+      "condition": "项目重要节点完成或版本发布",
+      "priority": "medium"
+    },
+    {
+      "event": "periodic_review",
+      "condition": "定期回顾和总结会议",
+      "priority": "low"
+    }
+  ],
+  "workflow_integration": {
+    "entry_points": [
+      "/memory:workflow-skill-memory",
+      "/workflow:session:complete",
+      "/memory:skill-memory"
+    ],
+    "collaboration": {
+      "all_agents": {
+        "interaction": "收集各代理的经验和洞察",
+        "deliverables": ["综合经验报告", "跨领域最佳实践", "知识整合文档"]
+      },
+      "development_team": {
+        "interaction": "了解实际开发痛点和需求",
+        "deliverables": ["培训材料", "技能发展计划", "工具改进建议"]
+      },
+      "management": {
+        "interaction": "提供团队发展和战略建议",
+        "deliverables": ["能力评估报告", "发展路线图", "投资建议"]
+      }
+    }
+  },
+  "learning_framework": {
+    "experience_capture": {
+      "data_sources": [
+        "code_commits_and_prs",
+        "meeting_minutes_and_decisions",
+        "bug_reports_and_fixes",
+        "performance_metrics_and_analyses",
+        "user_feedback_and_suggestions"
+      ],
+      "extraction_methods": {
+        "pattern_recognition": "ai_assisted_identification",
+        "trend_analysis": "statistical_analysis",
+        "qualitative_analysis": "expert_review",
+        "cross_reference": "multi_source_validation"
+      }
+    },
+    "knowledge_synthesis": {
+      "categorization": {
+        "technical_patterns": "code_and_architecture_best_practices",
+        "process_improvements": "workflow_and_methodology_enhancements",
+        "tool_optimization": "development_and_deployment_tools",
+        "team_dynamics": "collaboration_and_communication_patterns"
+      },
+      "validation": {
+        "peer_review": "expert_validation",
+        "practical_testing": "real_world_application",
+        "measurable_impact": "quantitative_assessment",
+        "continuous_feedback": "iterative_improvement"
+      }
+    },
+    "knowledge_dissemination": {
+      "documentation": {
+        "structured_guides": "step_by_step_instructions",
+        "case_studies": "real_world_examples",
+        "quick_reference": "checklist_and_cheatsheets",
+        "deep_dive_analysis": "comprehensive_explanations"
+      },
+      "training": {
+        "interactive_workshops": "hands_on_learning",
+        "online_courses": "self_paced_learning",
+        "mentoring_programs": "peer_to_peer_knowledge_transfer",
+        "knowledge_sharing_sessions": "regular_team_meetings"
+      }
+    }
+  },
+  "knowledge_categories": {
+    "technical_excellence": {
+      "code_quality": [
+        "typescript_best_practices",
+        "react_patterns_and_antipatterns",
+        "edge_runtime_optimization",
+        "testing_strategies_and_techniques",
+        "performance_optimization_patterns"
+      ],
+      "architecture": [
+        "scalable_design_patterns",
+        "microservices_architecture",
+        "edge_computing_architecture",
+        "data_modeling_best_practices",
+        "security_architecture_patterns"
+      ],
+      "devops": [
+        "ci_cd_pipeline_optimization",
+        "infrastructure_as_code",
+        "monitoring_and_observability",
+        "deployment_strategies",
+        "incident_response_procedures"
+      ]
+    },
+    "process_efficiency": {
+      "development_workflow": [
+        "agile_methodology_adaptations",
+        "code_review_best_practices",
+        "testing_workflow_optimization",
+        "documentation_standards",
+        "release_management"
+      ],
+      "collaboration": [
+        "effective_communication_patterns",
+        "remote_work_best_practices",
+        "knowledge_sharing_strategies",
+        "conflict_resolution_techniques",
+        "decision_making_frameworks"
+      ],
+      "quality_assurance": [
+        "quality_gates_implementation",
+        "automated_testing_strategies",
+        "code_coverage_optimization",
+        "security_testing_integrations",
+        "performance_monitoring_setup"
+      ]
+    },
+    "tool_mastery": {
+      "development_tools": [
+        "ide_and_editor_optimization",
+        "debugging_techniques",
+        "version_control_advanced_usage",
+        "package_management_strategies",
+        "code_generation_tools"
+      ],
+      "cloud_platforms": [
+        "cloudflare_services_mastery",
+        "edge_computing_optimization",
+        "serverless_deployment_patterns",
+        "cost_optimization_strategies",
+        "monitoring_and_analytics"
+      ],
+      "productivity_tools": [
+        "automation_scripting",
+        "task_management_systems",
+        "documentation_tools",
+        "collaboration_platforms",
+        "ai_assisted_development"
+      ]
+    }
+  },
+  "learning_templates": {
+    "experience_summary_template": {
+      "sections": [
+        "project_overview_and_context",
+        "key_challenges_encountered",
+        "solutions_implemented",
+        "lessons_learned",
+        "best_practices_identified",
+        "areas_for_improvement",
+        "recommendations_for_future_projects"
+      ]
+    },
+    "best_practice_documentation": {
+      "sections": [
+        "practice_name_and_category",
+        "problem_statement",
+        "solution_description",
+        "implementation_steps",
+        "code_examples",
+        "benefits_and_tradeoffs",
+        "when_to_use",
+        "related_practices"
+      ]
+    },
+    "case_study_template": {
+      "sections": [
+        "background_and_context",
+        "challenge_description",
+        "analysis_process",
+        "solution_design",
+        "implementation_journey",
+        "results_and_metrics",
+        "lessons_and_insights",
+        "applicability_to_other_situations"
+      ]
+    }
+  },
+  "skill_development_program": {
+    "assessment_framework": {
+      "technical_skills": {
+        "beginner": "basic_concepts_and_usage",
+        "intermediate": "independent_application",
+        "advanced": "complex_problem_solving",
+        "expert": "innovation_and_teaching"
+      },
+      "soft_skills": {
+        "communication": "clarity_and_effectiveness",
+        "collaboration": "teamwork_and_coordination",
+        "problem_solving": "analytical_thinking",
+        "leadership": "influence_and_mentorship"
+      }
+    },
+    "learning_paths": {
+      "cloudflare_edge_developer": {
+        "modules": [
+          "edge_runtime_fundamentals",
+          "workers_and_pages_development",
+          "d1_database_operations",
+          "r2_storage_management",
+          "kv_cache_implementation",
+          "advanced_optimization_techniques"
+        ],
+        "duration": "8_weeks",
+        "certification": "internal_proficiency_assessment"
+      },
+      "full_stack_typescript_developer": {
+        "modules": [
+          "advanced_typescript_patterns",
+          "react_architecture_and_patterns",
+          "next_js_advanced_features",
+          "api_design_and_implementation",
+          "database_design_and_optimization",
+          "testing_strategies_and_automation"
+        ],
+        "duration": "12_weeks",
+        "certification": "project_based_assessment"
+      }
+    }
+  },
+  "innovation_tracking": {
+    "technology_watch": {
+      "monitoring_sources": [
+        "industry_blogs_and_newsletters",
+        "research_papers_and_whitepapers",
+        "open_source_projects",
+        "conference_talks_and_presentations",
+        "vendor_roadmaps_and_announcements"
+      ],
+      "evaluation_criteria": [
+        "relevance_to_current_stack",
+        "learning_curve_complexity",
+        "community_support_and_maturity",
+        "performance_and_scalability",
+        "integration_complexity"
+      ]
+    },
+    "experiment_framework": {
+      "hypothesis_formulation": "clear_problem_and_proposed_solution",
+      "small_scale_testing": "controlled_experiments",
+      "metric_based_evaluation": "quantitative_success_criteria",
+      "decision_making": "data_driven_adoption_or_rejection"
+    }
+  },
+  "knowledge_base_structure": {
+    "hierarchy": {
+      "foundations": "core_concepts_and_principles",
+      "patterns": "reusable_solutions_and_templates",
+      "practices": "processes_and_methodologies",
+      "tools": "software_and_platforms",
+      "case_studies": "real_world_applications"
+    },
+    "metadata": {
+      "difficulty_level": "beginner_intermediate_advanced_expert",
+      "time_to_master": "estimated_learning_duration",
+      "prerequisites": "required_knowledge_and_skills",
+      "related_topics": "connected_knowledge_areas",
+      "applicability": "use_cases_and_scenarios"
+    }
+  },
+  "continuous_improvement": {
+    "feedback_loops": {
+      "knowledge_usage_tracking": "most_accessed_resources",
+      "learning_effectiveness": "skill_application_assessment",
+      "content_quality": "peer_review_and_ratings",
+      "relevance_assessment": "alignment_with_current_needs"
+    },
+    "content_maintenance": {
+      "regular_review_cycle": "quarterly_updates",
+      "accuracy_verification": "technical_validation",
+      "currency_check": "technology_stack_updates",
+      "accessibility_improvement": "usability_enhancements"
+    }
+  }
+}

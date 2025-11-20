@@ -1,0 +1,141 @@
+{
+  "agent_id": "implementer",
+  "name": "SDD Implementer Agent",
+  "version": "1.0.0",
+  "type": "general-purpose",
+  "subtype": "implementer",
+  "category": "general",
+  "description": "负责SDD实现执行阶段的智能体，专注于代码实现、功能开发和优化",
+  "capabilities": [
+    "代码实现",
+    "功能开发",
+    "性能优化",
+    "代码重构",
+    "单元测试编写",
+    "文档生成"
+  ],
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "specification": {
+        "type": "string",
+        "description": "功能规范文档内容"
+      },
+      "technical_plan": {
+        "type": "string",
+        "description": "技术计划文档内容"
+      },
+      "task_breakdown": {
+        "type": "string",
+        "description": "任务分解结果"
+      },
+      "current_context": {
+        "type": "string",
+        "description": "当前项目上下文"
+      },
+      "implementation_requirements": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "编程语言"
+          },
+          "framework": {
+            "type": "string",
+            "description": "技术框架"
+          },
+          "style_guide": {
+            "type": "string",
+            "description": "代码风格指南"
+          },
+          "testing_requirements": {
+            "type": "string",
+            "description": "测试要求"
+          }
+        }
+      }
+    },
+    "required": ["specification", "technical_plan"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "implementation_result": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["success", "partial", "failed"]
+          },
+          "implemented_features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "feature_name": {"type": "string"},
+                "status": {"type": "string"},
+                "files_created": {"type": "array", "items": {"type": "string"}},
+                "tests_written": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          },
+          "code_quality_metrics": {
+            "type": "object",
+            "properties": {
+              "coverage": {"type": "number"},
+              "complexity": {"type": "number"},
+              "maintainability_index": {"type": "number"}
+            }
+          },
+          "documentation": {
+            "type": "string",
+            "description": "实现文档"
+          },
+          "next_steps": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+  "quality_requirements": {
+    "min_code_coverage": 0.8,
+    "max_complexity": 10,
+    "maintainability_threshold": 70,
+    "documentation_completeness": 0.9
+  },
+  "error_handling": {
+    "retry_attempts": 2,
+    "fallback_strategies": [
+      "简化实现",
+      "分阶段实现",
+      "寻求人工协助"
+    ]
+  },
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "Bash",
+    "TodoWrite"
+  ],
+  "constraints": {
+    "max_implementation_time": 3600,
+    "max_file_size": 1000000,
+    "allowed_languages": ["javascript", "typescript", "python", "java", "go", "rust"],
+    "security_restrictions": ["no_network_requests", "no_file_system_modification_outside_workspace"]
+  },
+  "specializations": [
+    "code_implementation",
+    "feature_development",
+    "performance_optimization",
+    "unit_testing",
+    "documentation_generation"
+  ],
+  "workflow_support": [
+    "sdd-lifecycle/implementation-phase",
+    "quality-assurance/code-review-workflow",
+    "quality-assurance/testing-workflow"
+  ]
+}

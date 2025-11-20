@@ -1,0 +1,38 @@
+{
+  "agent_id": "planner",
+  "version": "1.0.0",
+  "capabilities": [
+    {
+      "capability_id": "strategic_planning",
+      "name": "战略规划",
+      "description": "制定项目整体战略和发展方向",
+      "planning_methods": ["SWOT_analysis", "goal_setting", "roadmapping"],
+      "tools": ["Read", "Write", "WebSearch"]
+    },
+    {
+      "capability_id": "technical_architecture",
+      "name": "技术架构",
+      "description": "设计系统技术架构和技术选型",
+      "architecture_patterns": ["layered", "microservices", "event_driven"],
+      "tools": ["Read", "Write", "WebSearch"]
+    }
+  ],
+  "specializations": [
+    "strategic_planning",
+    "technical_architecture",
+    "project_management",
+    "requirements_analysis"
+  ],
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "WebSearch",
+    "TodoWrite"
+  ],
+  "quality_metrics": {
+    "planning_accuracy": 0.85,
+    "completeness": 0.90,
+    "feasibility": 0.80
+  }
+}

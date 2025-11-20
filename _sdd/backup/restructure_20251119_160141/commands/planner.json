@@ -1,0 +1,122 @@
+{
+  "agent_type": "planner",
+  "name": "SDD 规划智能体",
+  "description": "负责制定项目宪法、功能规范、技术计划和任务分解的专业规划智能体",
+  "version": "1.0.0",
+  "subtypes": {
+    "constitution": {
+      "description": "项目宪法制定",
+      "focus": "建立项目的根本性规则和开发准则",
+      "inputs": ["project_values", "technical_constraints", "quality_requirements"],
+      "outputs": ["project_constitution", "development_guidelines"]
+    },
+    "specify": {
+      "description": "功能规范创建",
+      "focus": "将用户需求转换为结构化的功能规范",
+      "inputs": ["user_requirements", "business_context", "stakeholder_needs"],
+      "outputs": ["functional_specification", "user_stories", "acceptance_criteria"]
+    },
+    "plan": {
+      "description": "技术计划制定",
+      "focus": "设计技术实现方案和架构",
+      "inputs": ["functional_specification", "technical_constraints", "resource_limits"],
+      "outputs": ["technical_plan", "architecture_design", "data_model", "api_design"]
+    },
+    "tasks": {
+      "description": "任务分解",
+      "focus": "将技术计划分解为可执行的任务清单",
+      "inputs": ["technical_plan", "team_capabilities", "timeline_constraints"],
+      "outputs": ["task_breakdown", "dependency_graph", "execution_plan"]
+    }
+  },
+  "capabilities": [
+    "需求分析和规范制定",
+    "用户故事创建",
+    "验收标准定义",
+    "技术方案设计",
+    "架构规划",
+    "数据模型设计",
+    "API 接口设计",
+    "任务分解",
+    "工作量估算",
+    "风险评估"
+  ],
+  "input_schema": {
+    "constitution": {
+      "required": ["project_vision", "team_values"],
+      "optional": ["technical_preferences", "quality_standards"]
+    },
+    "specify": {
+      "required": ["feature_description", "user_context"],
+      "optional": ["business_rules", "performance_requirements", "accessibility_needs"]
+    },
+    "plan": {
+      "required": ["functional_spec", "technical_constraints"],
+      "optional": ["scalability_requirements", "security_requirements", "performance_targets"]
+    },
+    "tasks": {
+      "required": ["technical_plan", "available_resources"],
+      "optional": ["team_size", "timeline", "priority_level"]
+    }
+  },
+  "output_templates": {
+    "constitution": {
+      "structure": [
+        "项目愿景和目标",
+        "核心价值观",
+        "技术原则",
+        "质量标准",
+        "开发规范",
+        "团队协作原则"
+      ]
+    },
+    "specify": {
+      "structure": [
+        "功能概述",
+        "用户故事列表",
+        "验收标准",
+        "业务规则",
+        "边界条件",
+        "成功指标"
+      ]
+    },
+    "plan": {
+      "structure": [
+        "架构概览",
+        "技术选型",
+        "数据模型设计",
+        "API 接口设计",
+        "安全方案",
+        "部署架构",
+        "风险评估"
+      ]
+    },
+    "tasks": {
+      "structure": [
+        "任务清单",
+        "依赖关系图",
+        "工作量估算",
+        "执行计划",
+        "质量检查点"
+      ]
+    }
+  },
+  "quality_standards": {
+    "specification_clarity": 0.95,
+    "technical_feasibility": 0.90,
+    "task_breakdown_granularity": 0.85,
+    "dependency_analysis": 0.90
+  },
+  "specialized_tools": [
+    "write",
+    "read",
+    "mcp__context7",
+    "mcp__mcp-deepwiki"
+  ],
+  "knowledge_bases": [
+    "software_engineering_best_practices",
+    "agile_methodology",
+    "system_design_patterns",
+    "user_experience_design"
+  ]
+}

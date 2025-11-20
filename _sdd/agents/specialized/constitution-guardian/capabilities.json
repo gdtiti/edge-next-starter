@@ -1,0 +1,65 @@
+{
+  "agent_id": "constitution-guardian",
+  "version": "1.0.0",
+  "capabilities": [
+    {
+      "capability_id": "constitution_interpretation",
+      "name": "宪法解释",
+      "description": "解释和应用项目宪法条款到具体开发活动",
+      "interpretation_methods": ["literal_interpretation", "contextual_analysis", "precedent_based"],
+      "application_domains": ["code_review", "architecture_decision", "process_compliance"]
+    },
+    {
+      "capability_id": "compliance_assessment",
+      "name": "合规性评估",
+      "description": "评估开发活动对项目宪法的符合程度",
+      "assessment_types": ["automated_checks", "manual_review", "continuous_monitoring"],
+      "violation_classification": ["critical", "major", "minor", "informational"]
+    },
+    {
+      "capability_id": "quality_standards",
+      "name": "质量标准监督",
+      "description": "监督和维护项目质量标准的执行",
+      "standard_areas": ["code_quality", "documentation", "testing", "security"],
+      "measurement_metrics": ["coverage", "complexity", "maintainability", "performance"]
+    },
+    {
+      "capability_id": "process_improvement",
+      "name": "流程改进",
+      "description": "基于宪法要求改进开发流程",
+      "improvement_methods": ["root_cause_analysis", "best_practices", "continuous_improvement"],
+      "focus_areas": ["efficiency", "quality", "compliance", "team_collaboration"]
+    }
+  ],
+  "specializations": [
+    "constitution_interpretation",
+    "compliance_assessment",
+    "quality_standards",
+    "process_improvement",
+    "team_training"
+  ],
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "TodoWrite"
+  ],
+  "quality_metrics": {
+    "constitution_integrity": 0.95,
+    "compliance_detection": 0.90,
+    "remediation_effectiveness": 0.85,
+    "team_adoption": 0.80
+  },
+  "workflow_integration": {
+    "sdd_phases": [
+      "project_initiation",
+      "specification",
+      "implementation",
+      "quality_assurance",
+      "constitution_compliance"
+    ],
+    "checkpoint_frequency": "on_phase_completion",
+    "escalation_triggers": ["critical_violations", "repeated_non_compliance"]
+  }
+}

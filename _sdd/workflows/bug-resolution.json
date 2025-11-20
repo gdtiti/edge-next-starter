@@ -1,0 +1,352 @@
+{
+  "workflow_name": "bug-resolution",
+  "version": "1.0.0",
+  "description": "缺陷解决工作流 - 从问题发现到修复验证的完整流程",
+  "type": "maintenance",
+  "estimated_duration": "0.5-2_days",
+  "agents_sequence": [
+    "debugger",
+    "implementer",
+    "analyzer"
+  ],
+  "triggers": [
+    "bug_report_submitted",
+    "test_failure_detected",
+    "production_issue_alert",
+    "user_complaint_received"
+  ],
+  "severity_levels": {
+    "critical": {
+      "response_time": "immediate",
+      "resolution_time": "4_hours",
+      "escalation": "engineering_manager",
+      "notification": "all_stakeholders"
+    },
+    "high": {
+      "response_time": "1_hour",
+      "resolution_time": "1_day",
+      "escalation": "team_lead",
+      "notification": "development_team"
+    },
+    "medium": {
+      "response_time": "4_hours",
+      "resolution_time": "3_days",
+      "escalation": "team_lead",
+      "notification": "assigned_developer"
+    },
+    "low": {
+      "response_time": "1_day",
+      "resolution_time": "1_week",
+      "escalation": "team_lead",
+      "notification": "development_team"
+    }
+  },
+  "stages": {
+    "initial_triage_stage": {
+      "agent": "debugger",
+      "duration": "0.25-0.5_hour",
+      "objectives": [
+        "assess_bug_severity_and_impact",
+        "reproduce_the_issue",
+        "gather_environmental_information",
+        "determine_initial_priority"
+      ],
+      "inputs": [
+        "bug_report",
+        "error_logs",
+        "user_feedback",
+        "system_metrics"
+      ],
+      "outputs": [
+        "severity_classification",
+        "reproduction_steps",
+        "initial_diagnosis",
+        "impact_assessment"
+      ],
+      "checklist": {
+        "severity_assessment": [
+          "determine_user_impact_scope",
+          "assess_business_functionality_affected",
+          "evaluate_system_stability_risk",
+          "consider_data_corruption_possibility"
+        ],
+        "reproduction_validation": [
+          "verify_issue_consistency",
+          "document_environment_specifics",
+          "identify_dependency_factors",
+          "test_edge_cases"
+        ]
+      }
+    },
+    "root_cause_analysis_stage": {
+      "agent": "debugger",
+      "duration": "1-4_hours",
+      "objectives": [
+        "identify_root_cause",
+        "analyze_failure_mechanism",
+        "trace_execution_path",
+        "validate_hypothesis"
+      ],
+      "inputs": [
+        "reproducible_issue",
+        "source_code",
+        "system_logs",
+        "monitoring_data"
+      ],
+      "outputs": [
+        "root_cause_identification",
+        "failure_mechanism_documentation",
+        "affected_components_list",
+        "hypothesis_validation_results"
+      ],
+      "analysis_methods": {
+        "systematic_approach": [
+          "divide_and_conquer",
+          "hypothesis_testing",
+          "evidence_gathering",
+          "pattern_recognition"
+        ],
+        "tools_and_techniques": [
+          "debugger_usage",
+          "log_analysis",
+          "code_tracing",
+          "performance_profiling"
+        ]
+      },
+      "documentation_template": {
+        "root_cause_report": {
+          "sections": [
+            "problem_description",
+            "investigation_process",
+            "root_cause_identification",
+            "evidence_and_findings",
+            "impact_analysis",
+            "prevention_measures"
+          ]
+        }
+      }
+    },
+    "solution_design_stage": {
+      "agent": "debugger",
+      "duration": "0.5-2_hours",
+      "objectives": [
+        "design_fix_strategy",
+        "assess_solution_impact",
+        "plan_implementation_approach",
+        "define_verification_criteria"
+      ],
+      "inputs": [
+        "root_cause_analysis",
+        "system_architecture",
+        "existing_codebase",
+        "quality_requirements"
+      ],
+      "outputs": [
+        "solution_design_document",
+        "implementation_plan",
+        "risk_assessment",
+        "verification_strategy"
+      ],
+      "solution_types": {
+        "hotfix": {
+          "characteristics": "minimal_change_quick_deployment",
+          "use_cases": "critical_production_issues",
+          "considerations": ["temporal_nature", "regression_risk", "documentation_deferred"]
+        },
+        "proper_fix": {
+          "characteristics": "comprehensive_solution_full_testing",
+          "use_cases": "standard_bug_resolution",
+          "considerations": ["thorough_testing", "documentation_complete", "architecture_considered"]
+        },
+        "workaround": {
+          "characteristics": "temporary_solution_functionality_preserved",
+          "use_cases": "complex_issues requiring extensive_fix",
+          "considerations": ["user_impact_minimized", "permanent_fix_planned", "monitoring_required"]
+        }
+      }
+    },
+    "implementation_stage": {
+      "agent": "implementer",
+      "duration": "0.5-4_hours",
+      "objectives": [
+        "implement_the_fix",
+        "write_regression_tests",
+        "update_documentation",
+        "perform_self_validation"
+      ],
+      "inputs": [
+        "solution_design",
+        "fix_requirements",
+        "existing_tests",
+        "coding_standards"
+      ],
+      "outputs": [
+        "fixed_source_code",
+        "regression_test_suite",
+        "updated_documentation",
+        "implementation_validation"
+      ],
+      "implementation_practices": {
+        "code_quality": [
+          "minimal_invasive_changes",
+          "adherence_to_coding_standards",
+          "comprehensive_error_handling",
+          "clear_code_comments"
+        ],
+        "testing_strategy": [
+          "reproduce_original_issue",
+          "verify_fix_effectiveness",
+          "regression_test_coverage",
+          "edge_case_validation"
+        ],
+        "documentation_updates": [
+          "api_documentation_changes",
+          "code_comment_additions",
+          "troubleshooting_guide_updates",
+          "known_issues_log"
+        ]
+      }
+    },
+    "verification_stage": {
+      "agent": "analyzer",
+      "duration": "0.5-1_hour",
+      "objectives": [
+        "validate_fix_effectiveness",
+        "perform_regression_testing",
+        "assess_performance_impact",
+        "verify_quality_standards"
+      ],
+      "inputs": [
+        "implemented_fix",
+        "test_results",
+        "performance_metrics",
+        "quality_reports"
+      ],
+      "outputs": [
+        "verification_report",
+        "quality_assessment",
+        "performance_impact_analysis",
+        "deployment_readiness_certificate"
+      ],
+      "verification_checklist": {
+        "functional_verification": [
+          "original_issue_resolved",
+          "new_functionality_intact",
+          "user_scenarios_validated",
+          "acceptance_criteria_met"
+        ],
+        "non_functional_verification": [
+          "performance_standards_maintained",
+          "security_compliance_verified",
+          "scalability_impact_assessed",
+          "resource_usage_within_limits"
+        ],
+        "quality_assurance": [
+          "code_quality_standards_met",
+          "test_coverage_maintained",
+          "documentation_complete",
+          "architecture_compliance_verified"
+        ]
+      }
+    }
+  },
+  "automation_integrations": {
+    "issue_tracking": {
+      "automatic_creation": "from_error_reports",
+      "status_updates": "real_time_synchronization",
+      "assignment_logic": "severity_based_routing"
+    },
+    "diagnostic_tools": {
+      "error_analysis": "automated_log_processing",
+      "reproduction_assistance": "test_case_generation",
+      "impact_assessment": "user_impact_calculation"
+    },
+    "testing_automation": {
+      "regression_tests": "automatic_generation",
+      "validation_suites": "comprehensive_execution",
+      "performance_benchmarks": "automated_comparison"
+    }
+  },
+  "communication_protocol": {
+    "stakeholder_notifications": {
+      "issue_receipt": "immediate_acknowledgment",
+      "investigation_progress": "hourly_for_critical_daily_for_others",
+      "resolution_update": "immediate_on_completion",
+      "deployment_notice": "pre_and_post_deployment"
+    },
+    "escalation_paths": {
+      "level_1": "team_lead",
+      "level_2": "engineering_manager",
+      "level_3": "cto_director",
+      "triggers": ["resolution_delay", "impact_escalation", "stakeholder_request"]
+    },
+    "documentation_requirements": {
+      "internal_documentation": "detailed_technical_analysis",
+      "external_documentation": "user_facing_explanation",
+      "knowledge_base": "pattern_recognition_and_prevention"
+    }
+  },
+  "quality_metrics": {
+    "resolution_metrics": {
+      "mean_time_to_resolution": "target_based_on_severity",
+      "first_fix_success_rate": "target_90_percent",
+      "regression_rate": "target_below_5_percent",
+      "customer_satisfaction": "target_above_85_percent"
+    },
+    "process_metrics": {
+      "issue_triage_time": "target_under_1_hour",
+      "root_cause_identification_time": "target_80_percent_of_resolution_time",
+      "verification_coverage": "target_100_percent_of_fixes",
+      "documentation_completeness": "target_100_percent_of_fixes"
+    },
+    "improvement_tracking": {
+      "recurrence_analysis": "pattern_identification",
+      "prevention_effectiveness": "reduction_in_similar_issues",
+      "process_optimization": "workflow_efficiency_improvement",
+      "knowledge_capture": "best_practice_identification"
+    }
+  },
+  "prevention_strategy": {
+    "pattern_identification": {
+      "common_cause_categories": [
+        "edge_cases",
+        "environment_differences",
+        "race_conditions",
+        "data_consistency",
+        "integration_failures"
+      ],
+      "analysis_methods": [
+        "statistical_pattern_analysis",
+        "code_review_insights",
+        "user_feedback_correlation",
+        "system_behavior_analysis"
+      ]
+    },
+    "preventive_measures": {
+      "development_practices": [
+        "comprehensive_testing",
+        "code_review_enhancement",
+        "static_analysis_integration",
+        "design_pattern_application"
+      ],
+      "system_improvements": [
+        "error_handling_enhancement",
+        "monitoring_and_alerting",
+        "automated_testing_expansion",
+        "documentation_maintenance"
+      ],
+      "process_improvements": [
+        "requirement_clarity",
+        "environment_parity",
+        "deployment_procedures",
+        "knowledge_sharing"
+      ]
+    },
+    "continuous_learning": {
+      "lessons_learned_integration": "workflow_improvement",
+      "knowledge_base_enhancement": "pattern_documentation",
+      "training_program_development": "skill_gap_identification",
+      "tool_improvement": "automation_enhancement"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "command_id": "api-build",
+  "name": "Admin.NET API构建",
+  "version": "1.0.0",
+  "category": "adminnet-specific",
+  "type": "atomic",
+  "description": "执行Admin.NET框架的API代码生成和构建流程",
+
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "build_type": {
+        "type": "string",
+        "enum": ["full_build", "incremental", "type_generation_only"],
+        "description": "构建类型",
+        "default": "full_build"
+      },
+      "target_services": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "目标API服务列表，为空则构建全部"
+      },
+      "output_format": {
+        "type": "string",
+        "enum": ["typescript", "csharp", "both"],
+        "description": "客户端代码生成格式",
+        "default": "typescript"
+      },
+      "backend_url": {
+        "type": "string",
+        "description": "后端服务URL",
+        "default": "http://localhost:5005"
+      }
+    },
+    "required": []
+  },
+
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "build_result": {
+        "type": "object",
+        "properties": {
+          "build_successful": {"type": "boolean"},
+          "generated_files": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "api_count": {"type": "integer"},
+          "client_code_path": {"type": "string"},
+          "build_log": {"type": "string"},
+          "next_steps": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+
+  "implementation": {
+    "tools": ["Read", "Bash", "Write"],
+    "timeout": 60000,
+    "workflow_phase": "api_development"
+  },
+
+  "sdd_workflow": {
+    "phase": "implementation",
+    "agent": "implementer",
+    "adminnet_specific": true,
+    "prerequisites": ["backend_service_running"]
+  }
+}

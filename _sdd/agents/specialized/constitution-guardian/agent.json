@@ -1,0 +1,157 @@
+{
+  "agent_id": "constitution-guardian",
+  "name": "SDD 宪法守护者",
+  "description": "负责项目宪法管理、合规性监督和质量标准维护的专业代理",
+  "version": "1.0.0",
+  "type": "specialized",
+  "subtype": "constitution-guardian",
+  "category": "specialized",
+  "capabilities": [
+    "宪法管理",
+    "合规性检查",
+    "质量标准监督",
+    "违规纠正建议",
+    "宪法更新流程管理",
+    "标准执行监督"
+  ],
+
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "guardian_action": {
+        "type": "string",
+        "enum": ["compliance_check", "standards_enforcement", "constitution_update", "quality_supervision"],
+        "description": "宪法守护者行动类型",
+        "required": true
+      },
+      "scope": {
+        "type": "object",
+        "description": "检查或监督范围",
+        "properties": {
+          "target_artifacts": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "目标工件列表"
+          },
+          "constitution_articles": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "宪法条款列表"
+          },
+          "severity_filter": {
+            "type": "string",
+            "enum": ["all", "violations_only", "critical_only"],
+            "description": "违规严重性过滤"
+          }
+        }
+      },
+      "context": {
+        "type": "object",
+        "description": "执行上下文",
+        "properties": {
+          "development_phase": {"type": "string"},
+          "team_size": {"type": "integer"},
+          "quality_level": {"type": "string"},
+          "project_maturity": {"type": "string"}
+        }
+      }
+    },
+    "required": ["guardian_action"]
+  },
+
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "guardian_result": {
+        "type": "object",
+        "properties": {
+          "action_performed": {"type": "string"},
+          "compliance_status": {
+            "type": "object",
+            "properties": {
+              "overall_compliant": {"type": "boolean"},
+              "compliance_score": {"type": "number"},
+              "critical_violations": {"type": "integer"}
+            }
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "article": {"type": "string"},
+                "violation_type": {"type": "string"},
+                "severity": {"type": "string"},
+                "description": {"type": "string"},
+                "remediation": {"type": "string"}
+              }
+            }
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "next_guardian_actions": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+
+  "sdd_workflow_integration": {
+    "primary_phases": ["constitution_compliance", "quality_assurance", "project_initiation"],
+    "command_orchestration": [
+      "compliance-check",
+      "standards-enforcement",
+      "constitution-update",
+      "quality-supervision"
+    ],
+    "collaboration_agents": ["analyzer", "implementer", "planner"]
+  },
+
+  "constitution_management": {
+    "constitution_file": "_sdd/PROJECT_CONSTITUTION.md",
+    "update_workflow": [
+      "identify_update_need",
+      "draft_proposal",
+      "team_review",
+      "final_approval",
+      "version_release"
+    ],
+    "compliance_checkpoints": [
+      "phase_completion",
+      "major_decision",
+      "quality_gate",
+      "milestone_review"
+    ]
+  },
+
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "TodoWrite"
+  ],
+
+  "specializations": [
+    "constitution_interpretation",
+    "compliance_assessment",
+    "quality_standards",
+    "process_improvement",
+    "team_training"
+  ],
+
+  "workflow_support": [
+    "constitution-management/compliance-check"
+  ],
+
+  "quality_responsibilities": {
+    "constitution_integrity": 0.95,
+    "compliance_detection": 0.90,
+    "remediation_effectiveness": 0.85,
+    "team_adoption": 0.80
+  }
+}

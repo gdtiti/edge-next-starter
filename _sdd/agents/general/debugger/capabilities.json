@@ -1,0 +1,166 @@
+{
+  "agent_id": "debugger",
+  "version": "1.0.0",
+  "capabilities": [
+    {
+      "capability_id": "error_diagnosis",
+      "name": "错误诊断",
+      "description": "识别和分类错误类型",
+      "error_types": ["runtime", "logic", "performance", "security", "integration"],
+      "tools": ["Read", "Bash", "Grep", "WebSearch"]
+    },
+    {
+      "capability_id": "root_cause_analysis",
+      "name": "根因分析",
+      "description": "深度分析错误的根本原因",
+      "methods": ["5whys", "fishbone_diagram", "fault_tree_analysis", "traceback_analysis"],
+      "tools": ["Read", "Grep", "Bash", "Write"]
+    },
+    {
+      "capability_id": "solution_design",
+      "name": "解决方案设计",
+      "description": "设计问题的解决方案",
+      "solution_types": ["quick_fix", "architectural_change", "process_improvement", "tool_upgrade"],
+      "tools": ["Write", "Edit", "WebSearch"]
+    },
+    {
+      "capability_id": "problem_reproduction",
+      "name": "问题重现",
+      "description": "重现和验证问题",
+      "methods": ["controlled_reproduction", "automated_testing", "log_analysis"],
+      "tools": ["Bash", "Read", "Write"]
+    },
+    {
+      "capability_id": "debug_report_generation",
+      "name": "调试报告生成",
+      "description": "生成详细的调试报告",
+      "formats": ["markdown", "json", "html"],
+      "sections": ["executive_summary", "analysis_details", "solutions", "next_steps"],
+      "tools": ["Write"]
+    },
+    {
+      "capability_id": "knowledge_base_update",
+      "name": "知识库更新",
+      "description": "更新调试知识库和最佳实践",
+      "update_types": ["new_patterns", "solution_validation", "lessons_learned"],
+      "tools": ["Write", "Edit"]
+    }
+  ],
+  "specializations": [
+    {
+      "specialization_id": "error_classification",
+      "name": "错误分类专家",
+      "description": "准确识别错误类型和严重程度",
+      "expertise_domains": ["software_errors", "integration_issues", "performance_problems"],
+      "classification_accuracy": 0.95
+    },
+    {
+      "specialization_id": "systematic_debugging",
+      "name": "系统化调试",
+      "description": "使用标准化的调试流程和方法",
+      "process_frameworks": ["5whys_method", "root_cause_analysis", "solution_validation"],
+      "methodology": "scientific_approach"
+    },
+    {
+      "specialization_id": "solution_evaluation",
+      "name": "解决方案评估",
+      "description": "评估解决方案的可行性和有效性",
+      "evaluation_criteria": ["feasibility", "cost_effectiveness", "risk_assessment", "success_probability"],
+      "decision_framework": "multi_criteria_analysis"
+    }
+  ],
+  "tools_required": [
+    {
+      "tool": "Read",
+      "purpose": "读取日志文件和源代码",
+      "essential": true
+    },
+    {
+      "tool": "Write",
+      "purpose": "生成调试报告和文档",
+      "essential": true
+    },
+    {
+      "tool": "Edit",
+      "purpose": "修改代码和配置文件",
+      "essential": false
+    },
+    {
+      "tool": "Bash",
+      "purpose": "执行命令行工具和测试",
+      "essential": true
+    },
+    {
+      "tool": "Grep",
+      "purpose": "搜索日志和错误信息",
+      "essential": true
+    },
+    {
+      "tool": "WebSearch",
+      "purpose": "搜索解决方案和最佳实践",
+      "essential": false
+    },
+    {
+      "tool": "TodoWrite",
+      "purpose": "跟踪调试任务和进度",
+      "essential": false
+    }
+  ],
+  "quality_metrics": {
+    "diagnostic_accuracy": {
+      "target": 0.90,
+      "current": 0.90,
+      "improvement_suggestions": []
+    },
+    "analysis_depth": {
+      "target": 3,
+      "current": 3,
+      "assessment": "meets_requirement"
+    },
+    "solution_quality": {
+      "target": 0.80,
+      "current": 0.80,
+      "assessment": "meets_requirement"
+    },
+    "response_time": {
+      "target": 45000,
+      "unit": "milliseconds",
+      "current": 40000
+    }
+  },
+  "debug_patterns": {
+    "common_patterns": {
+      "api_misuse": {
+        "success_rate": 0.85,
+        "usage_frequency": "high"
+      },
+      "ux_optimization": {
+        "success_rate": 0.90,
+        "usage_frequency": "medium"
+      },
+      "performance_issue": {
+        "success_rate": 0.75,
+        "usage_frequency": "high"
+      }
+    }
+  },
+  "knowledge_base": {
+    "patterns": [
+      "api_misuse_pattern",
+      "ux_optimization_pattern",
+      "performance_pattern"
+    ],
+    "lessons_learned": [],
+    "auto_update": true
+  },
+  "created_at": "2025-11-19T00:00:00Z",
+  "updated_at": "2025-11-19T00:00:00Z",
+  "author": "SDD System",
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2025-11-19",
+      "changes": "Initial version with comprehensive debugging capabilities"
+    }
+  ]
+}

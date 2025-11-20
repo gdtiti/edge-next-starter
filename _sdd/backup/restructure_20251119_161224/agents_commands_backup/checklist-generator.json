@@ -1,0 +1,185 @@
+{
+  "name": "SDD Checklist Generator Agent",
+  "version": "1.0.0",
+  "description": "负责SDD检查清���生成的智能体，根据不同阶段和需求生成质量检查清单",
+  "type": "general-purpose",
+  "subtype": "checklist-generator",
+  "capabilities": [
+    "检查清单生成",
+    "质量标准定义",
+    "验证规则制定",
+    "进度跟踪设计",
+    "合规性检查项",
+    "最佳实践整合"
+  ],
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "checklist_type": {
+        "type": "string",
+        "enum": ["requirements", "design", "implementation", "testing", "deployment", "review"],
+        "description": "检查清单类型"
+      },
+      "project_context": {
+        "type": "string",
+        "description": "项目上下文和背景"
+      },
+      "quality_standards": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "适用的质量标准"
+      },
+      "specific_requirements": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "category": {"type": "string"},
+            "requirement": {"type": "string"},
+            "priority": {"type": "string", "enum": ["must", "should", "could", "wont"]}
+          }
+        }
+      },
+      "constraints": {
+        "type": "object",
+        "properties": {
+          "time_constraints": {"type": "string"},
+          "resource_constraints": {"type": "string"},
+          "technical_constraints": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "required": ["checklist_type"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "checklist_result": {
+        "type": "object",
+        "properties": {
+          "checklist_info": {
+            "type": "object",
+            "properties": {
+              "title": {"type": "string"},
+              "type": {"type": "string"},
+              "version": {"type": "string"},
+              "created_date": {"type": "string"},
+              "applicable_phases": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "checklist_sections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "section_title": {"type": "string"},
+                "section_description": {"type": "string"},
+                "check_items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {"type": "string"},
+                      "description": {"type": "string"},
+                      "category": {"type": "string"},
+                      "priority": {"type": "string", "enum": ["critical", "high", "medium", "low"]},
+                      "type": {"type": "string", "enum": ["checkbox", "yes_no", "score", "text"]},
+                      "validation_criteria": {"type": "string"},
+                      "evidence_required": {"type": "boolean"},
+                      "automated_check": {"type": "boolean"}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "quality_metrics": {
+            "type": "object",
+            "properties": {
+              "total_items": {"type": "number"},
+              "critical_items": {"type": "number"},
+              "automated_items": {"type": "number"},
+              "estimated_completion_time": {"type": "string"},
+              "required_roles": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "usage_guidelines": {
+            "type": "object",
+            "properties": {
+              "instructions": {"type": "string"},
+              "best_practices": {"type": "array", "items": {"type": "string"}},
+              "common_pitfalls": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "customization_options": {
+            "type": "object",
+            "properties": {
+              "addable_sections": {"type": "array", "items": {"type": "string"}},
+              "scalable_items": {"type": "array", "items": {"type": "string"}},
+              "integratable_tools": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        }
+      }
+    }
+  },
+  "checklist_templates": {
+    "requirements": {
+      "sections": [
+        "functional_requirements",
+        "non_functional_requirements",
+        "acceptance_criteria",
+        "traceability",
+        "stakeholder_validation"
+      ],
+      "quality_focus": ["completeness", "clarity", "testability", "feasibility"]
+    },
+    "design": {
+      "sections": [
+        "architecture_design",
+        "interface_design",
+        "data_model_design",
+        "security_design",
+        "performance_design"
+      ],
+      "quality_focus": ["scalability", "maintainability", "security", "performance"]
+    },
+    "implementation": {
+      "sections": [
+        "code_quality",
+        "naming_conventions",
+        "error_handling",
+        "documentation",
+        "unit_testing"
+      ],
+      "quality_focus": ["readability", "maintainability", "testability", "standards_compliance"]
+    },
+    "testing": {
+      "sections": [
+        "test_planning",
+        "test_coverage",
+        "test_execution",
+        "automation",
+        "performance_testing"
+      ],
+      "quality_focus": ["coverage", "effectiveness", "efficiency", "automation"]
+    }
+  },
+  "quality_standards_framework": {
+    "ISO_9126": ["functionality", "reliability", "usability", "efficiency", "maintainability", "portability"],
+    "SOLID": ["single_responsibility", "open_closed", "liskov_substitution", "interface_segregation", "dependency_inversion"],
+    "CLEAN_CODE": ["readability", "simplicity", "minimalism", "no_duplication"],
+    "AGILE": ["customer_collaboration", "responding_to_change", "working_software", "individuals_interactions"]
+  },
+  "automation_integration": {
+    "ci_cd_tools": ["jenkins", "github_actions", "gitlab_ci", "azure_devops"],
+    "quality_tools": ["sonarqube", "eslint", "pytest", "jest"],
+    "documentation_tools": ["sphinx", "gitbook", "docusaurus", "mkdocs"]
+  },
+  "tools_required": [
+    "Read",
+    "Write",
+    "Edit",
+    "TodoWrite"
+  ]
+}

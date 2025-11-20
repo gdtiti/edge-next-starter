@@ -1,0 +1,143 @@
+{
+  "name": "SDD Learner Agent",
+  "version": "1.0.0",
+  "description": "负责SDD经验学习和知识沉淀的智能体，从项目实践中提炼最佳实践",
+  "type": "general-purpose",
+  "subtype": "learner",
+  "capabilities": [
+    "经验总结",
+    "知识提取",
+    "最佳实践识别",
+    "模式抽象",
+    "知识库更新",
+    "防错机制建立"
+  ],
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "project_context": {
+        "type": "string",
+        "description": "项目背景和上下文"
+      },
+      "experiences": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string", "enum": ["success", "failure", "challenge"]},
+            "description": {"type": "string"},
+            "outcome": {"type": "string"},
+            "lessons": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      },
+      "metrics": {
+        "type": "object",
+        "properties": {
+          "success_rate": {"type": "number"},
+          "efficiency_improvement": {"type": "number"},
+          "quality_metrics": {"type": "object"}
+        }
+      },
+      "learning_objectives": {
+        "type": "array",
+        "items": {"type": "string"}
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "learning_result": {
+        "type": "object",
+        "properties": {
+          "summary": {
+            "type": "string",
+            "description": "学习总结"
+          },
+          "key_insights": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "insight": {"type": "string"},
+                "importance": {"type": "string"},
+                "applicability": {"type": "string"}
+              }
+            }
+          },
+          "best_practices": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "practice": {"type": "string"},
+                "context": {"type": "string"},
+                "evidence": {"type": "string"}
+              }
+            }
+          },
+          "patterns_identified": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "pattern_name": {"type": "string"},
+                "description": {"type": "string"},
+                "usage_frequency": {"type": "number"},
+                "effectiveness": {"type": "number"}
+              }
+            }
+          },
+          "knowledge_updates": {
+            "type": "object",
+            "properties": {
+              "lessons_learned": {"type": "string"},
+              "debug_patterns": {"type": "array", "items": {"type": "string"}},
+              "quality_improvements": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+  "learning_framework": {
+    "extraction_methods": [
+      "pattern_recognition",
+      "success_factor_analysis",
+      "failure_mode_analysis",
+      "efficiency_comparison"
+    ],
+    "knowledge_types": [
+      "technical_patterns",
+      "process_improvements",
+      "quality_metrics",
+      "team_collaboration",
+      "user_experience"
+    ],
+    "validation_criteria": {
+      "repeatability": 0.8,
+      "measurability": 0.7,
+      "transferability": 0.6
+    }
+  },
+  "quality_requirements": {
+    "min_insights_per_project": 3,
+    "pattern_validation_threshold": 0.75,
+    "knowledge_completeness": 0.85
+  },
+  "knowledge_base_paths": {
+    "lessons_learned": "_sdd/memory/lessons-learned.md",
+    "best_practices": "_sdd/memory/best-practices.md",
+    "debug_patterns": "_sdd/debug/templates/"
+  },
+  "auto_update_config": {
+    "enabled": true,
+    "update_frequency": "on_completion",
+    "review_required": true
+  }
+}

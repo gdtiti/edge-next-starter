@@ -1,0 +1,239 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "cloudflare-edge-next-starter",
+    "type": "nextjs-cloudflare-edge",
+    "description": "云原生全栈应用模板，基于Cloudflare Edge Runtime和Next.js",
+    "constitution": "SDD_CONSTITUTION.md"
+  },
+  "tech_stack": {
+    "framework": "nextjs",
+    "version": "15.5.2",
+    "runtime": "edge",
+    "language": "typescript",
+    "ui": "react",
+    "styling": "tailwind",
+    "database": "d1-sqlite",
+    "storage": ["r2", "kv"],
+    "auth": "nextauth",
+    "testing": "vitest",
+    "package_manager": "pnpm"
+  },
+  "development": {
+    "coding_standards": {
+      "typescript": "strict",
+      "eslint": "recommended",
+      "prettier": "enabled",
+      "husky": "enabled",
+      "lint_staged": "enabled"
+    },
+    "architecture_patterns": {
+      "repository_pattern": "enabled",
+      "service_layer": "enabled",
+      "middleware_pattern": "enabled",
+      "server_actions": "enabled"
+    },
+    "quality_metrics": {
+      "test_coverage_min": 80,
+      "typescript_strict_mode": true,
+      "eslint_warnings_max": 0,
+      "lighthouse_performance_min": 95
+    }
+  },
+  "deployment": {
+    "platform": "cloudflare-pages",
+    "environments": {
+      "local": {
+        "branch": "local",
+        "database": "sqlite_local",
+        "storage": "simulated",
+        "analytics": "disabled"
+      },
+      "test": {
+        "branch": "develop",
+        "database": "d1_test",
+        "storage": "r2_test_bucket",
+        "analytics": "optional"
+      },
+      "production": {
+        "branch": "main",
+        "database": "d1_production",
+        "storage": "r2_production_bucket",
+        "analytics": "enabled"
+      }
+    },
+    "ci_cd": {
+      "on_commit": "lint_format_type_check",
+      "on_push": "test_suite_coverage",
+      "on_pr": "full_suite_security_build",
+      "auto_deploy": {
+        "develop": "test_environment",
+        "main": "production_environment"
+      }
+    }
+  },
+  "sdd_framework": {
+    "agents": {
+      "init_architect": {
+        "enabled": true,
+        "scope": ["project_analysis", "architecture_design", "standards_definition"],
+        "triggers": ["project_init", "architecture_review", "standards_update"]
+      },
+      "planner": {
+        "enabled": true,
+        "scope": ["requirements_analysis", "technical_planning", "task_breakdown"],
+        "triggers": ["new_feature", "complex_task", "refactoring_plan"]
+      },
+      "implementer": {
+        "enabled": true,
+        "scope": ["code_implementation", "unit_testing", "documentation_update"],
+        "triggers": ["development_task", "bug_fix", "feature_enhancement"]
+      },
+      "analyzer": {
+        "enabled": true,
+        "scope": ["code_quality_analysis", "performance_analysis", "architecture_health"],
+        "triggers": ["code_change", "performance_issue", "architecture_review"]
+      },
+      "debugger": {
+        "enabled": true,
+        "scope": ["issue_diagnosis", "solution_design", "troubleshooting"],
+        "triggers": ["bug_report", "test_failure", "production_issue"]
+      },
+      "learner": {
+        "enabled": true,
+        "scope": ["experience_summarization", "best_practices", "knowledge_management"],
+        "triggers": ["task_completion", "incident_resolution", "milestone_achievement"]
+      }
+    },
+    "workflows": {
+      "feature_development": {
+        "sequence": ["planner", "implementer", "analyzer", "learner"],
+        "quality_gates": {
+          "planning": "specification_completeness",
+          "development": "code_quality_test_coverage",
+          "completion": "documentation_sync_knowledge_capture"
+        }
+      },
+      "bug_resolution": {
+        "sequence": ["debugger", "implementer", "analyzer"],
+        "quality_gates": {
+          "diagnosis": "root_cause_identification",
+          "fix": "solution_effectiveness_test_pass",
+          "verification": "regression_prevention"
+        }
+      },
+      "architecture_review": {
+        "sequence": ["analyzer", "init_architect", "planner"],
+        "quality_gates": {
+          "analysis": "architecture_health_metrics",
+          "review": "standards_compliance",
+          "planning": "improvement_roadmap"
+        }
+      }
+    },
+    "code_generation": {
+      "templates": {
+        "api_route": {
+          "path_pattern": "app/api/{route_name}/route.ts",
+          "template": "withMiddleware(request, async () => {\n  // TODO: 实现 {route_name} 业务逻辑\n  return successResponse(data);\n})",
+          "auto_test": true
+        },
+        "repository": {
+          "path_pattern": "repositories/{model_name}.repository.ts",
+          "template": "export class {ModelName}Repository {\n  constructor(private db: D1Database) {}\n  \n  async create(data: Create{ModelName}Dto) {\n    // TODO: 实现创建逻辑\n  }\n}",
+          "auto_test": true
+        },
+        "service": {
+          "path_pattern": "lib/{service_name}/{service_name}.ts",
+          "template": "export class {ServiceName}Service {\n  // TODO: 实现 {service_name} 业务逻辑\n}",
+          "auto_test": true
+        },
+        "component": {
+          "path_pattern": "components/{component_name}/{component_name}.tsx",
+          "template": "export function {ComponentName}() {\n  return (\n    <div>\n      {/* TODO: 实现 {component_name} 组件 */}\n    </div>\n  );\n}",
+          "auto_test": true
+        }
+      }
+    },
+    "quality_assurance": {
+      "auto_review": {
+        "enabled": true,
+        "rules": ["typescript_compliance", "architecture_patterns", "security_best_practices", "edge_runtime_compatibility"]
+      },
+      "suggestions": {
+        "enabled": true,
+        "categories": ["performance_optimization", "code_readability", "error_handling", "documentation_improvements"]
+      },
+      "best_practices": {
+        "enabled": true,
+        "frameworks": ["react_best_practices", "nextjs_optimization", "cloudflare_edge_patterns", "typescript_discipline"]
+      }
+    }
+  },
+  "monitoring": {
+    "performance": {
+      "metrics": ["response_time", "throughput", "error_rate", "availability"],
+      "thresholds": {
+        "response_time_p95": "200ms",
+        "error_rate": "0.1%",
+        "availability": "99.9%"
+      },
+      "alerting": "enabled"
+    },
+    "quality": {
+      "metrics": ["test_coverage", "code_complexity", "technical_debt", "security_score"],
+      "thresholds": {
+        "test_coverage": "80%",
+        "code_complexity": "medium",
+        "security_score": "A"
+      },
+      "reporting": "weekly"
+    }
+  },
+  "security": {
+    "baseline": {
+      "authentication": "nextauth_jwt",
+      "authorization": "role_based_access",
+      "rate_limiting": "kv_sliding_window",
+      "input_validation": "zod_schema_validation",
+      "secret_management": "cloudflare_secrets"
+    },
+    "compliance": {
+      "data_protection": "gdpr_compliant",
+      "encryption": "transport_storage",
+      "audit_logging": "enabled",
+      "access_control": "least_privilege"
+    }
+  },
+  "documentation": {
+    "standards": {
+      "languages": ["zh", "en"],
+      "format": "markdown",
+      "code_examples": "required",
+      "troubleshooting": "comprehensive"
+    },
+    "auto_generation": {
+      "api_docs": "enabled",
+      "component_docs": "enabled",
+      "architecture_docs": "enabled",
+      "deployment_docs": "enabled"
+    }
+  },
+  "ai_integration": {
+    "code_assistance": {
+      "enabled": true,
+      "capabilities": ["code_completion", "generation", "refactoring", "optimization"],
+      "review_required": true
+    },
+    "testing_assistance": {
+      "enabled": true,
+      "capabilities": ["test_generation", "test_enhancement", "coverage_analysis"],
+      "review_required": true
+    },
+    "documentation_assistance": {
+      "enabled": true,
+      "capabilities": ["doc_generation", "translation", "formatting"],
+      "review_required": false
+    }
+  }
+}

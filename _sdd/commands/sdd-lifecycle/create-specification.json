@@ -1,0 +1,74 @@
+{
+  "command_id": "create-specification",
+  "name": "创建功能规范",
+  "version": "1.0.0",
+  "category": "sdd-lifecycle",
+  "type": "atomic",
+  "description": "基于用户需求创建结构化的功能规范文档",
+
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "user_requirements": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "用户需求列表",
+        "required": true
+      },
+      "business_context": {
+        "type": "string",
+        "description": "业务背景和上下文"
+      },
+      "stakeholder_needs": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "利益相关者需求"
+      },
+      "spec_type": {
+        "type": "string",
+        "enum": ["functional", "technical", "user_story", "acceptance_criteria"],
+        "description": "规范类型",
+        "default": "functional"
+      }
+    },
+    "required": ["user_requirements"]
+  },
+
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "specification": {
+        "type": "object",
+        "properties": {
+          "document_id": {"type": "string"},
+          "title": {"type": "string"},
+          "content": {"type": "string"},
+          "user_stories": {
+            "type": "array",
+            "items": {"type": "object"}
+          },
+          "acceptance_criteria": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "next_steps": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+
+  "implementation": {
+    "tools": ["Read", "Write", "Edit", "WebSearch"],
+    "timeout": 25000,
+    "workflow_phase": "specification"
+  },
+
+  "sdd_workflow": {
+    "phase": "specification",
+    "agent": "planner",
+    "next_commands": ["create-technical-plan"]
+  }
+}

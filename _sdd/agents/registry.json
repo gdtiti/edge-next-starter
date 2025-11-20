@@ -1,0 +1,157 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-11-19T00:00:00Z",
+  "registry_type": "agent_centric",
+
+  "agents": {
+    "analyzer": {
+      "type": "general",
+      "file": "general/analyzer/agent.json",
+      "capabilities": ["code_analysis", "architecture_assessment", "quality_analysis", "performance_analysis", "security_analysis", "dependency_analysis", "compliance_check"],
+      "status": "active",
+      "priority": "high",
+      "description": "代码分析和架构评估专家"
+    },
+
+    "debugger": {
+      "type": "general",
+      "file": "general/debugger/agent.json",
+      "capabilities": ["error_analysis", "root_cause_analysis", "solution_design", "performance_troubleshooting"],
+      "status": "active",
+      "priority": "high",
+      "description": "系统化问题调试和解决专家"
+    },
+
+    "implementer": {
+      "type": "general",
+      "file": "general/implementer/agent.json",
+      "capabilities": ["code_generation", "implementation_guidance", "best_practices_application", "pattern_implementation"],
+      "status": "active",
+      "priority": "high",
+      "description": "代码实现和功能开发专家"
+    },
+
+    "clarifier": {
+      "type": "general",
+      "file": "general/clarifier/agent.json",
+      "capabilities": ["requirement_analysis", "stakeholder_communication", "scope_management", "assumption_validation"],
+      "status": "active",
+      "priority": "medium",
+      "description": "需求澄清和问题理解专家"
+    },
+
+    "init-architect": {
+      "type": "specialized",
+      "file": "specialized/init-architect/agent.json",
+      "capabilities": ["project_analysis", "architecture_design", "technology_selection", "sdd_integration"],
+      "status": "active",
+      "priority": "high",
+      "description": "项目初始化和架构设计专家"
+    },
+
+    "planner": {
+      "type": "general",
+      "file": "general/planner/agent.json",
+      "capabilities": ["strategic_planning", "technical_architecture", "requirements_analysis", "task_breakdown"],
+      "status": "active",
+      "priority": "high",
+      "description": "项目规划和技术方案设计专家"
+    },
+
+    "learner": {
+      "type": "general",
+      "file": "general/learner/agent.json",
+      "capabilities": ["experience_analysis", "pattern_recognition", "knowledge_management", "best_practice_identification"],
+      "status": "active",
+      "priority": "medium",
+      "description": "经验学习和知识沉淀专家"
+    },
+
+    "constitution-guardian": {
+      "type": "specialized",
+      "file": "specialized/constitution-guardian/agent.json",
+      "capabilities": ["constitution_management", "compliance_assessment", "quality_standards", "process_improvement"],
+      "status": "active",
+      "priority": "high",
+      "description": "项目宪法管理和合规性监督专家"
+    },
+
+    "mcp-analyzer": {
+      "type": "general",
+      "file": "general/mcp-analyzer/agent.json",
+      "capabilities": ["mcp_tool_discovery", "capability_analysis", "sdd_mapping", "integration_planning"],
+      "status": "active",
+      "priority": "medium",
+      "description": "MCP工具分析和集成规划专家"
+    },
+
+    "checklist-generator": {
+      "type": "general",
+      "file": "general/checklist-generator/agent.json",
+      "capabilities": ["quality_standards_definition", "checklist_design", "process_improvement", "compliance_verification"],
+      "status": "active",
+      "priority": "medium",
+      "description": "SDD检查清单生成和质量控制专家"
+    }
+  },
+
+  "agent_categories": {
+    "general": {
+      "description": "通用代理，适用于多种场景",
+      "agents": ["analyzer", "debugger", "implementer", "clarifier", "planner", "learner", "mcp-analyzer", "checklist-generator"],
+      "characteristics": ["versatile", "reusable", "broad_scope"]
+    },
+
+    "specialized": {
+      "description": "专业化代理，针对特定领域",
+      "agents": ["init-architect", "constitution-guardian"],
+      "characteristics": ["domain_expert", "deep_knowledge", "specialized_tools"]
+    }
+  },
+
+  "workflow_support": {
+    "sdd-lifecycle": {
+      "project-initiation": ["init-architect", "clarifier"],
+      "specification-phase": ["analyzer", "clarifier"],
+      "planning-phase": ["analyzer", "clarifier"],
+      "implementation-phase": ["implementer", "debugger"],
+      "validation-phase": ["analyzer", "debugger"],
+      "learning-phase": ["analyzer"]
+    },
+
+    "problem-solving": {
+      "error-debugging": ["debugger", "analyzer"],
+      "performance-optimization": ["analyzer", "debugger"],
+      "compatibility-resolution": ["analyzer", "debugger"]
+    },
+
+    "quality-assurance": {
+      "code-review": ["analyzer", "debugger"],
+      "testing": ["analyzer", "implementer"],
+      "documentation": ["analyzer", "clarifier"]
+    }
+  },
+
+  "agent_metrics": {
+    "total_agents": 10,
+    "active_agents": 10,
+    "general_agents": 8,
+    "specialized_agents": 2,
+    "average_capabilities_per_agent": 5.5,
+    "coverage_score": 0.95
+  },
+
+  "integration_info": {
+    "compatible_versions": ["1.0.0"],
+    "required_tools": ["Read", "Write", "Edit", "Grep", "Glob", "Bash", "WebSearch", "TodoWrite"],
+    "configuration_format": "json",
+    "capabilities_format": "json"
+  },
+
+  "metadata": {
+    "created_at": "2025-11-19T00:00:00Z",
+    "updated_at": "2025-11-19T00:00:00Z",
+    "author": "SDD System",
+    "description": "SDD智能代理注册表，管理所有代理的配置和能力"
+  }
+}
